@@ -1,0 +1,21 @@
+{
+  "name": "DynamicImageServing",
+  "propertyRoot": true,
+  "identifier": "dynamic.image.serving",
+  "description": "DeepMg core microservice",
+  "version": "0.0.1",
+  "author": {
+    "name": "Mitoc Group",
+    "email": "hello@mitocgroup.com"
+  },
+  "contributors": [
+    {
+      "name": "Stefan Hariton",
+      "email": "shariton@mitocgroup.com"
+    }
+  ],
+  "website": "https://www.deep.mg",
+  "email": "hello@mitocgroup.com",
+  "dependencies": {
+  }
+}

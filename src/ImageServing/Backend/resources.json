@@ -1,12 +1,20 @@
 {
-  "sample": {
-    "say-hello": {
-      "description": "Says hello to the world",
+  "image": {
+    "router": {
+      "description": "Routes the request where needed",
       "type": "lambda",
       "methods": [
-        "POST"
+        "GET"
       ],
-      "source": "src/SayHello"
+      "source": "src/Image/Router"
+    },
+    "transcoder": {
+      "description": "Transcodes the image",
+      "type": "lambda",
+      "methods": [
+        "GET"
+      ],
+      "source": "src/Image/Transcoding"
     }
   }
 }
