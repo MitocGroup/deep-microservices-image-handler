@@ -22,7 +22,8 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
     let graphicsMagic = gm.subClass({imageMagick: true});
     let resizeWidth = request.data.Width;
     let resizeHeight = request.data.Height;
-    let sourceName = request.data.Name;
+    let sourceName = request.data.OriginalFileName;
+    let outputName = request.data.OutputFileName;
     let s3 = new AWS.S3();
 
     let params = {Bucket: "dynim", Key: sourceName};
@@ -31,8 +32,8 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
       graphicsMagic(data.Body).resize(resizeHeight, resizeWidth)
           .toBuffer('JPG', (err, buffer) => {
             let base64Image = buffer.toString('base64');
-            params.Key = sourceName + '/' + resizeHeight + '/' + resizeWidth;
-            params.Body = base64Image;
+            params.Key = outputName;
+            params.Body = buffer;
             s3.putObject(params, (err, response) => {
               this.createResponse(base64Image).send();
             })

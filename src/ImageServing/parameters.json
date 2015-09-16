@@ -1,0 +1,18 @@
+{
+  "backend": {
+    "s3bucket": {
+      "displayName": "S3 source and destination bucket",
+      "type": "string",
+      "required": "true",
+      "example": "myBucketName",
+      "default": "dynim"
+    },
+    "transformationLambdaName": {
+      "displayName": "transformation Lambda Name",
+      "type": "string",
+      "required": "true",
+      "example": "LambdaTransformation",
+      "default": "LambdaTransformation"
+    }
+  }
+}

@@ -12,6 +12,6 @@ export default class Hasher {
   }
 
   static hash(string) {
-    return CRC32.str(string);
+    return CRC32.str(string).toString();
   }
 }

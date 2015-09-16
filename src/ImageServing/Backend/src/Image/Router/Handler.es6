@@ -24,11 +24,13 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
     let splittedFileName = requestedFileName.split('*');
     let height = splittedFileName.pop();
     let width = splittedFileName.pop();
+    let bucketName = DeepFramework.Kernel.get.parameter('s3bucket');
+    let transformationLambdaName = DeepFramework.Kernel.get('transformationLambdaName');
     let s3 = new AWS.S3();
     let hashedFileName = Hasher.hash(originalFileName + width + height);
 
-    let params = {Bucket: "dynim", Key: hashedFileName}; //Bucket name should be taken from config
-    console.log('Requesting image');
+    let params = {Bucket: bucketName, Key: hashedFileName};
+
     s3.getObject(params, (err, data) => {
       if (!err) {
         this.createResponse(data.Body.toString('base-64')).send();
@@ -37,11 +39,11 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
         console.log('Invoking lambda');
         lambda.invoke(
             {
-              FunctionName: 'Resize', //Should be taken from config
+              FunctionName: 'Resize',
               ClientContext: JSON.stringify(context),
               InvocationType: 'RequestResponse',
               LogType: 'None',
-              Payload: JSON.stringify({"Name": hashedFileName, "Width": width, "Height": height})
+              Payload: JSON.stringify({"OriginalFileName": originalFileName, "OutputFileName": hashedFileName, "Width": width, "Height": height})
             },
             (err, response) => {
               console.log(response);
