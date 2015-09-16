@@ -31,6 +31,8 @@
 ## File-based project format:
 *.ipr
 *.iws
+*.zip
+*.sfv
 
 ## Plugin-specific files:
 
