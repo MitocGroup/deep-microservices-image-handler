@@ -49,19 +49,22 @@ var _default = (function (_DeepFramework$Core$AWS$Lambda$Runtime) {
 
   _createClass(_default, [{
     key: 'handle',
-    value: function handle(request) {
+    value: function handle(request, context) {
       var _this = this;
 
-      var requestedFileName = request.FileName;
+      var microserviceIdentifier = _mitocgroupDeepFramework2['default'].Kernel.config.microserviceIdentifier;
+      var requestedFileName = request.data.FileName;
       var originalFileName = requestedFileName.split('*')[0];
       var splittedFileName = requestedFileName.split('*');
       var height = splittedFileName.pop();
       var width = splittedFileName.pop();
+      var bucketName = _mitocgroupDeepFramework2['default'].Kernel.config.microservices[microserviceIdentifier].parameters.s3bucket;
+      var transformationLambdaName = _mitocgroupDeepFramework2['default'].Kernel.config.microservices[microserviceIdentifier].parameters.transformationLambdaName;
       var s3 = new _awsSdk2['default'].S3();
       var hashedFileName = _Hasher2['default'].hash(originalFileName + width + height);
 
-      var params = { Bucket: "dynim", Key: hashedFileName }; //Bucket name should be taken from config
-      console.log('Requesting image');
+      var params = { Bucket: bucketName, Key: hashedFileName };
+
       s3.getObject(params, function (err, data) {
         if (!err) {
           _this.createResponse(data.Body.toString('base-64')).send();
@@ -69,13 +72,13 @@ var _default = (function (_DeepFramework$Core$AWS$Lambda$Runtime) {
           var lambda = new _awsSdk2['default'].Lambda({ apiVersion: '2015-03-31' });
           console.log('Invoking lambda');
           lambda.invoke({
-            FunctionName: 'Resize', //Should be taken from config
-            ClientContext: {},
+            FunctionName: transformationLambdaName,
+            ClientContext: JSON.stringify(context),
             InvocationType: 'RequestResponse',
             LogType: 'None',
-            Payload: { Name: hashedFileName, Width: width, Height: height }
+            Payload: JSON.stringify({ "OriginalFileName": originalFileName, "OutputFileName": hashedFileName, "Width": width, "Height": height })
           }, function (err, response) {
-            console.log(response);
+            console.log(err, response);
             _this.createResponse(response).send();
           });
         }

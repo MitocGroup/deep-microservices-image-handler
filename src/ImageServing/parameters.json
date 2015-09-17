@@ -5,14 +5,30 @@
       "type": "string",
       "required": "true",
       "example": "myBucketName",
-      "default": "dynim"
+      "default": "dynim.oregon"
     },
     "transformationLambdaName": {
       "displayName": "transformation Lambda Name",
       "type": "string",
       "required": "true",
       "example": "LambdaTransformation",
-      "default": "LambdaTransformation"
+      "default": "DeepBImageTranscoder6657b910"
+    }
+  },
+  "globals": {
+    "logDrivers|sentry|dsn": {
+      "displayName": "Sentry DSN",
+      "type": "string",
+      "required": false,
+      "pattern": "^https?://[^:]+(:[^@]+)?@app\\.getsentry\\.com/[0-9]+$",
+      "example": "https://72kshdbrgkebghkrb34iu5yb3ub:23l5hbk2v2jhg52uygvygvhmgv@app.getsentry.com/45747"
+    },
+    "security|identityProviders|www.amazon.com": {
+      "displayName": "Amazon Identity Provider",
+      "type": "string",
+      "required": true,
+      "example": "amzn1.application.3b5k2jb53252352kjh5b23kj5hb",
+      "default": "amzn1.application.3b5k2jb53252352kjh5b23kj5hb"
     }
   }
 }

@@ -19,13 +19,14 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
   }
 
   handle(request, context) {
+    let microserviceIdentifier = DeepFramework.Kernel.config.microserviceIdentifier;
     let requestedFileName = request.data.FileName;
     let originalFileName = requestedFileName.split('*')[0];
     let splittedFileName = requestedFileName.split('*');
     let height = splittedFileName.pop();
     let width = splittedFileName.pop();
-    let bucketName = DeepFramework.Kernel.get.parameter('s3bucket');
-    let transformationLambdaName = DeepFramework.Kernel.get('transformationLambdaName');
+    let bucketName = DeepFramework.Kernel.config.microservices[microserviceIdentifier].parameters.s3bucket;
+    let transformationLambdaName = DeepFramework.Kernel.config.microservices[microserviceIdentifier].parameters.transformationLambdaName;
     let s3 = new AWS.S3();
     let hashedFileName = Hasher.hash(originalFileName + width + height);
 
@@ -33,20 +34,22 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
     s3.getObject(params, (err, data) => {
       if (!err) {
-        this.createResponse(data.Body.toString('base-64')).send();
+        this.createResponse(data.Body.toString('base64')).send();
       } else {
         let lambda = new AWS.Lambda({apiVersion: '2015-03-31'});
         console.log('Invoking lambda');
         lambda.invoke(
             {
-              FunctionName: 'Resize',
+              FunctionName: transformationLambdaName,
               ClientContext: JSON.stringify(context),
               InvocationType: 'RequestResponse',
               LogType: 'None',
               Payload: JSON.stringify({"OriginalFileName": originalFileName, "OutputFileName": hashedFileName, "Width": width, "Height": height})
             },
             (err, response) => {
-              console.log(response);
+              if (err) {
+                this.createResponse(err).send();
+              }
               this.createResponse(response).send();
             }
         );

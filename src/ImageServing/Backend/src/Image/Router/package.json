@@ -21,10 +21,10 @@
   ],
   "dependencies": {
     "@mitocgroup/deep-framework": "*",
-    "crc-32": "*"
+    "crc-32": "*",
+    "babel-core": "5.5.*"
   },
   "devDependencies": {
-    "babel-core": "5.5.*"
   },
   "license": "ISC"
 }

@@ -53,18 +53,23 @@ var _default = (function (_DeepFramework$Core$AWS$Lambda$Runtime) {
       var _this = this;
 
       var graphicsMagic = _gm2['default'].subClass({ imageMagick: true });
+      var microserviceIdentifier = _mitocgroupDeepFramework2['default'].Kernel.config.microserviceIdentifier;
       var resizeWidth = request.data.Width;
       var resizeHeight = request.data.Height;
-      var sourceName = request.data.Name;
+      var sourceName = request.data.OriginalFileName;
+      var outputName = request.data.OutputFileName;
       var s3 = new _awsSdk2['default'].S3();
+      var s3BucketName = _mitocgroupDeepFramework2['default'].Kernel.config.microservices[microserviceIdentifier].parameters.s3bucket;
+      console.log(request);
 
-      var params = { Bucket: "dynim", Key: sourceName };
+      var params = { Bucket: s3BucketName, Key: sourceName };
 
       s3.getObject(params, function (err, data) {
+        console.log(err, data);
         graphicsMagic(data.Body).resize(resizeHeight, resizeWidth).toBuffer('JPG', function (err, buffer) {
           var base64Image = buffer.toString('base64');
-          params.Key = sourceName + '/' + resizeHeight + '/' + resizeWidth;
-          params.Body = base64Image;
+          params.Key = outputName;
+          params.Body = buffer;
           s3.putObject(params, function (err, response) {
             _this.createResponse(base64Image).send();
           });

@@ -20,15 +20,21 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
   handle(request) {
     let graphicsMagic = gm.subClass({imageMagick: true});
+    let microserviceIdentifier = DeepFramework.Kernel.config.microserviceIdentifier;
     let resizeWidth = request.data.Width;
     let resizeHeight = request.data.Height;
     let sourceName = request.data.OriginalFileName;
     let outputName = request.data.OutputFileName;
     let s3 = new AWS.S3();
+    let s3BucketName = DeepFramework.Kernel.config.microservices[microserviceIdentifier].parameters.s3bucket;
+    console.log(request);
 
-    let params = {Bucket: "dynim", Key: sourceName};
+    let params = {Bucket: s3BucketName, Key: sourceName};
 
     s3.getObject(params, (err, data) => {
+      if (err) {
+        this.createResponse(err).send();
+      }
       graphicsMagic(data.Body).resize(resizeHeight, resizeWidth)
           .toBuffer('JPG', (err, buffer) => {
             let base64Image = buffer.toString('base64');

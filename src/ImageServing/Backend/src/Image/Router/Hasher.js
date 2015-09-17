@@ -26,7 +26,7 @@ var Hasher = (function () {
   _createClass(Hasher, null, [{
     key: 'hash',
     value: function hash(string) {
-      return CRC32.str(string);
+      return _crc322['default'].str(string).toString();
     }
   }]);
 
