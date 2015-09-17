@@ -115,3 +115,9 @@ src/*/*.compiled
 lib.compiled/*
 /tests/*
 coverage/*
+
+.cfg.deeploy.json
+deeploy.json
+
+#Transpiled Lambdas code
+**/Backend/src/**/*.js
