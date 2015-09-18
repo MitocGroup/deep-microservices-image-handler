@@ -1,13 +1,13 @@
 {
-  "name": "DynamicImageServing",
-  "propertyRoot": true,
-  "identifier": "dynamic.image.serving",
-  "description": "DeepMg core microservice",
+  "identifier": "deep.mg.dynamic.image",
+  "name": "DeepMgDynamicImage",
+  "description": "DEEP Microservices Dynamic Image Service",
   "version": "0.0.1",
+  "propertyRoot": false,
   "author": {
     "name": "Mitoc Group",
     "email": "hello@mitocgroup.com",
-    "website": "https://www.deep.mg"
+    "website": "http://www.mitocgroup.com"
   },
   "contributors": [
     {
@@ -18,3 +18,4 @@
   "dependencies": {
   }
 }
+

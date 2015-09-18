@@ -1,17 +1,21 @@
 {
-  "name": "deep-microservice-image-serving-router",
+  "name": "deep-microservices-dynamic-image-routing",
+  "description": "AWS Lambda function that routes requests",
   "version": "0.0.1",
-  "description": "RequestRouter lambda from DeepImageServing",
-  "author": "Digital End-To-End Platform",
+  "author": {
+    "name": "Mitoc Group",
+    "email": "hello@mitocgroup.com",
+    "website": "http://www.mitocgroup.com"
+  },
   "contributors": [
     {
       "name": "DEEP Dev Team",
       "email": "hello@deep.mg",
-      "website": "www.deep.mg"
+      "website": "https://www.deep.mg"
     }
   ],
   "bugs": {
-    "url": "https://github.com/MitocGroup/deep-microservices-image-serving"
+    "url": "https://github.com/MitocGroup/deep-microservices-dynamic-image"
   },
   "scripts": {
     "postinstall": "BABEL_ENV=production babel -x \".es6\" ./ --out-dir ./"
@@ -26,5 +30,5 @@
   },
   "devDependencies": {
   },
-  "license": "ISC"
+  "license": "MIT"
 }
