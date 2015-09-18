@@ -7,6 +7,7 @@
 import DeepFramework                from '@mitocgroup/deep-framework';
 import gm                           from 'gm';
 import AWS                          from 'aws-sdk';
+import fileType                     from 'file-type';
 
 export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
@@ -27,7 +28,10 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
     let s3 = new AWS.S3();
     let s3BucketName = DeepFramework.Kernel.config.microservices[microserviceIdentifier].parameters.s3bucket;
 
-    let params = {Bucket: s3BucketName, Key: sourceName};
+    let params = {
+      Bucket: s3BucketName,
+      Key: sourceName,
+    };
 
     s3.getObject(params, (err, data) => {
       if (err) {
@@ -39,6 +43,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
             let base64Image = buffer.toString('base64');
             params.Key = outputName;
             params.Body = buffer;
+            params.ContentType = fileType(buffer).mime;
             s3.putObject(params, (err, response) => {
               this.createResponse(base64Image).send();
             });

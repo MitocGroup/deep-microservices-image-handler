@@ -21,10 +21,9 @@
   ],
   "dependencies": {
     "@mitocgroup/deep-framework": "*",
-    "gm": "^1.18.1",
-    "babel-core": "5.5.*"
+    "babel-core": "5.5.*",
+    "gm": "^1.18.1"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "license": "ISC"
 }

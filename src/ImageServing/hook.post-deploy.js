@@ -5,11 +5,12 @@
 'use strict';
 
 var AWS = require('aws-sdk');
-var parameters = require('.parameters.json');
+var parameters = require('./.parameters.json');
 var s3 = new AWS.S3();
 var async = require('async');
 
 var exports = module.exports = function(callback) {
+  console.log(this.provisioning.config.s3);
   var bucketName = this.provisioning.config.s3.buckets.public.name;
 
   async.parallel([
@@ -51,7 +52,7 @@ var exports = module.exports = function(callback) {
         },
       ];
 
-      s3.putBucketWebsite(response, (err, response) => {
+      s3.putBucketWebsite(response, function(err, response) {
         if (err) {
           cb(err);
         } else {
