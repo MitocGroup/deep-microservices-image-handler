@@ -8,11 +8,25 @@
       "default": "dynim.oregon"
     },
     "transformationLambdaName": {
-      "displayName": "transformation Lambda Name",
+      "displayName": "Transformation Lambda Name",
       "type": "string",
       "required": "true",
       "example": "LambdaTransformation",
       "default": "DeepBImageTranscoder6657b910"
+    },
+    "apiGatewayHostname": {
+      "displayName": "Api gateway hostname for redirect rules on s3",
+      "type": "string",
+      "required": "true",
+      "example": "qm98rz5i21.execute-api.us-east-1.amazonaws.com/prod",
+      "default": "qm98rz5i21.execute-api.us-east-1.amazonaws.com/prod"
+    },
+    "apiGatewayPrefix": {
+      "displayName": "Api gateway prefixfor redirect rules on s3",
+      "type": "string",
+      "required": "true",
+      "example": "image/",
+      "default": "image/"
     }
   },
   "globals": {

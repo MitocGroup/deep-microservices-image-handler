@@ -1,0 +1,12 @@
+{
+  "frontend": {},
+  "globals": {
+    "security|identityProviders|www.amazon.com": "amzn1.application.3b5k2jb53252352kjh5b23kj5hb"
+  },
+  "backend": {
+    "s3bucket": "dynim.oregon",
+    "transformationLambdaName": "DeepBImageTranscoder6657b910",
+    "apiGatewayHostname": "qm98rz5i21.execute-api.us-east-1.amazonaws.com/prod",
+    "apiGatewayPrefix": "image/"
+  }
+}

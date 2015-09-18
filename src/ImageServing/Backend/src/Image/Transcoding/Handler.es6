@@ -2,7 +2,6 @@
  * Created by Stefan Hariton on 9/14/15.
  */
 
-
 'use strict';
 
 import DeepFramework                from '@mitocgroup/deep-framework';
@@ -27,7 +26,6 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
     let outputName = request.data.OutputFileName;
     let s3 = new AWS.S3();
     let s3BucketName = DeepFramework.Kernel.config.microservices[microserviceIdentifier].parameters.s3bucket;
-    console.log(request);
 
     let params = {Bucket: s3BucketName, Key: sourceName};
 
@@ -35,6 +33,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
       if (err) {
         this.createResponse(err).send();
       }
+
       graphicsMagic(data.Body).resize(resizeHeight, resizeWidth)
           .toBuffer('JPG', (err, buffer) => {
             let base64Image = buffer.toString('base64');
@@ -42,8 +41,8 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
             params.Body = buffer;
             s3.putObject(params, (err, response) => {
               this.createResponse(base64Image).send();
-            })
-          })
+            });
+          });
     });
   }
 }

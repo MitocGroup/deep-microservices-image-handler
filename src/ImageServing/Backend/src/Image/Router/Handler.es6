@@ -2,7 +2,6 @@
  * Created by Stefan Hariton on 9/14/15.
  */
 
-
 'use strict';
 
 import DeepFramework                from '@mitocgroup/deep-framework';
@@ -37,23 +36,24 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
         this.createResponse(data.Body.toString('base64')).send();
       } else {
         let lambda = new AWS.Lambda({apiVersion: '2015-03-31'});
-        console.log('Invoking lambda');
         lambda.invoke(
             {
               FunctionName: transformationLambdaName,
               ClientContext: JSON.stringify(context),
               InvocationType: 'RequestResponse',
               LogType: 'None',
-              Payload: JSON.stringify({"OriginalFileName": originalFileName, "OutputFileName": hashedFileName, "Width": width, "Height": height})
+              Payload: JSON.stringify({OriginalFileName: originalFileName, OutputFileName: hashedFileName, Width: width, Height: height}),
             },
             (err, response) => {
               if (err) {
                 this.createResponse(err).send();
               }
+
               this.createResponse(response).send();
             }
         );
       }
+
     });
   }
 }
