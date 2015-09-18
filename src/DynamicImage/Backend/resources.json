@@ -6,7 +6,7 @@
       "methods": [
         "GET"
       ],
-      "source": "src/Image/Router"
+      "source": "src/Image/Routing"
     },
     "transcoder": {
       "description": "Transcodes the image",

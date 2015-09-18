@@ -1,11 +1,11 @@
-DEEP Microservices Image Serving
+DEEP Microservices Dynamic Image
 ================================
 
-[![NPM Version](https://img.shields.io/npm/v/deep-microservices-image-serving.svg)](https://npmjs.org/package/deep-microservices-image-serving)
-[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-image-serving.svg)](https://travis-ci.org/MitocGroup/deep-microservices-image-serving)
-[![Dependencies Status](https://david-dm.org/MitocGroup/deep-microservices-image-serving.svg)](https://david-dm.org/MitocGroup/deep-microservices-image-serving)
-[![Coverage Status](https://coveralls.io/repos/MitocGroup/deep-microservices-image-serving/badge.svg)](https://coveralls.io/r/MitocGroup/deep-microservices-image-serving)
-[![Codacy Badge](https://api.codacy.com/project/badge/46841776f9044f018f0a71b3e114299d)](https://www.codacy.com/app/MitocGroup/deep-microservices-image-serving/dashboard)
+[![NPM Version](https://img.shields.io/npm/v/deep-microservices-dynamic-image.svg)](https://npmjs.org/package/deep-microservices-dynamic-image)
+[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-dynamic-image.svg)](https://travis-ci.org/MitocGroup/deep-microservices-dynamic-image)
+[![Dependencies Status](https://david-dm.org/MitocGroup/deep-microservices-dynamic-image.svg)](https://david-dm.org/MitocGroup/deep-microservices-dynamic-image)
+[![Coverage Status](https://coveralls.io/repos/MitocGroup/deep-microservices-dynamic-image/badge.svg)](https://coveralls.io/r/MitocGroup/deep-microservices-dynamic-image)
+[![Codacy Badge](https://api.codacy.com/project/badge/46841776f9044f018f0a71b3e114299d)](https://www.codacy.com/app/MitocGroup/deep-microservices-dynamic-image)
 
 ## License
 
