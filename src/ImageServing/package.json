@@ -1,0 +1,14 @@
+{
+  "name": "deep-microservices-image-serving",
+  "version": "0.0.1",
+  "description": "Deep dynamic image serving",
+  "main": " ",
+  "scripts": {
+
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.4.2"
+  }
+}

@@ -7,28 +7,32 @@
 var AWS = require('aws-sdk');
 var parameters = require('.parameters.json');
 var s3 = new AWS.S3();
+var async = require('async');
 
 var exports = module.exports = function(callback) {
-  var microservice = this.microservice;
-  var provisioning = this.provisioning;
-  var base64EmptyPixel = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiYAAAAAkAAxkR2eQAAAAASUVORK5CYII=';
-  var bucketName = provisioning.config.s3.buckets.public.name;
-  var apiGatewayHostname = parameters.backend.apiGatewayHostname;
-  var apiGatewayPrefix = parameters.backend.apiGatewayPrefix;
+  var bucketName = this.provisioning.config.s3.buckets.public.name;
 
-  function updateS3WebsiteRedirectRules() {
+  async.parallel([
+    updateBucketWebsite,
+    put1x1EmptyPixel,
+  ], callback);
+
+  function updateBucketWebsite(cb) {
+    var apiGatewayHostname = parameters.backend.apiGatewayHostname;
+    var apiGatewayPrefix = parameters.backend.apiGatewayPrefix;
+
     s3.getBucketWebsite({Bucket: bucketName}, function(err, response) {
       if (err) {
-        throw new Error(err);
+        cb(err);
       }
 
       response.RoutingRules = [
         {
           Redirect: {
-            HostName: parameters.backend.apiGatewayHostname,
+            HostName: apiGatewayHostname,
             HttpRedirectCode: 301,
             Protocol: 'https',
-            ReplaceKeyPrefixWith: parameters.backend.apiGatewayPrefix,
+            ReplaceKeyPrefixWith: apiGatewayPrefix,
           },
           Condition: {
             HttpErrorCodeReturnedEquals: '404',
@@ -36,22 +40,29 @@ var exports = module.exports = function(callback) {
         },
         {
           Redirect: {
-            HostName: parameters.backend.apiGatewayHostname,
+            HostName: apiGatewayHostname,
             HttpRedirectCode: 301,
             Protocol: 'https',
-            ReplaceKeyPrefixWith: parameters.backend.apiGatewayPrefix,
+            ReplaceKeyPrefixWith: apiGatewayPrefix,
           },
           Condition: {
             HttpErrorCodeReturnedEquals: '403',
           },
         },
       ];
-    }.bind(this));
 
-    s3.putBucketWebsite(websiteConfiguration);
+      s3.putBucketWebsite(response, (err, response) => {
+        if (err) {
+          cb(err);
+        } else {
+          cb(response);
+        }
+      });
+    }.bind(this));
   }
 
-  function put1x1EmptyPixel() {
+  function put1x1EmptyPixel(cb) {
+    var base64EmptyPixel = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiYAAAAAkAAxkR2eQAAAAASUVORK5CYII=';
     var parameters = {
       Bucket: bucketName,
       Key: 'transparent1x1.png',
@@ -62,28 +73,14 @@ var exports = module.exports = function(callback) {
         parameters.Body = new Buffer(base64EmptyPixel, 'base64');
         s3.putObject(parameters, function(err, response) {
           if (err) {
-            throw new Error(err);
+            cb(err);
+          } else {
+            cb(response);
           }
-
-          return callback();
         });
       } else {
-        return callback();
+        cb(response);
       }
     }.bind(this));
   }
-
-  function async(array, cb) {
-    var pending = array.length;
-    function functionDone() {
-      pending = pending - 1;
-    }
-
-    for (var i = 0; i < pending; i++) {
-      array[i](functionDone());
-    }
-
-    //Not finished
-  }
-
 };
