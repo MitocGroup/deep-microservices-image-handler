@@ -7,12 +7,6 @@
       "example": "myBucketName",
       "default": "dynim.oregon"
     },
-    "transformationLambdaName": {
-      "displayName": "Transformation Lambda Name",
-      "type": "string",
-      "required": "true",
-      "example": "<Generated transformation lambda after deploy>"
-    },
     "apiGatewayHostname": {
       "displayName": "Api gateway hostname for redirect rules on s3",
       "type": "string",

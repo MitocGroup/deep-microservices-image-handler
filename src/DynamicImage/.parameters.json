@@ -5,7 +5,6 @@
   },
   "backend": {
     "s3Bucket": "deep.dev.public.fd09cebd",
-    "transformationLambdaName": "DeepDevvImageTranscoder6657b910",
     "apiGatewayHostname": "qm98rz5i21.execute-api.us-east-1.amazonaws.com",
     "apiGatewayPrefix": "prod/image/"
   }
