@@ -16,36 +16,71 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    */
   constructor(...args) {
     super(...args);
+
+    this._graphicsMagic = gm.subClass({imageMagick: true});
+    this._s3 = new AWS.S3();
+    this._microserviceIdentifier = DeepFramework.Kernel.config.microserviceIdentifier;
+    this._s3BucketName = DeepFramework.Kernel.config.microservices[this.microserviceIdentifier].parameters.s3Bucket;
+  }
+
+  get graphicsMagic() {
+    return this._graphicsMagic;
+  }
+
+  get s3() {
+    return this._s3;
+  }
+
+  get microserviceIdentifier() {
+    return this._microserviceIdentifier;
+  }
+
+  get s3BucketName() {
+    return this._s3BucketName;
+  }
+
+  get parameters() {
+    if (this._parameters && Object.getOwnPropertyNames(this._parameters).length !== 0) {
+      return this._parameters;
+    } else {
+      throw new Error('Init method was not called yet');
+    }
+  }
+
+  init(request) {
+    this._parameters = {};
+    this._parameters.resizeWidth = request.data.Width;
+    this._parameters.resizeHeight = request.data.Height;
+    this._parameters.sourceName = request.data.OriginalFileName;
+    this._parameters.outputName = request.data.OutputFileName;
   }
 
   handle(request) {
-    let graphicsMagic = gm.subClass({imageMagick: true});
-    let microserviceIdentifier = DeepFramework.Kernel.config.microserviceIdentifier;
-    let resizeWidth = request.data.Width;
-    let resizeHeight = request.data.Height;
-    let sourceName = request.data.OriginalFileName;
-    let outputName = request.data.OutputFileName;
-    let s3 = new AWS.S3();
-    let s3BucketName = DeepFramework.Kernel.config.microservices[microserviceIdentifier].parameters.s3bucket;
+    this.init(request);
 
     let params = {
-      Bucket: s3BucketName,
-      Key: sourceName,
+      Bucket: this.s3BucketName,
+      Key: this.parameters.sourceName,
     };
 
-    s3.getObject(params, (err, data) => {
+    this.s3.getObject(params, (err, data) => {
       if (err) {
         this.createResponse(err).send();
       }
 
-      graphicsMagic(data.Body).resize(resizeHeight, resizeWidth)
+      this.graphicsMagic(data.Body).resize(this.parameters.resizeHeight, this.parameters.resizeWidth)
           .toBuffer('JPG', (err, buffer) => {
-            let base64Image = buffer.toString('base64');
-            params.Key = outputName;
+            //let base64Image = buffer.toString('base64');
+            params.Key = this.parameters.outputName;
             params.Body = buffer;
             params.ContentType = fileType(buffer).mime;
-            s3.putObject(params, (err, response) => {
-              this.createResponse(base64Image).send();
+            this.s3.putObject(params, (err, response) => {
+              console.log(err, response);
+              if (err) {
+                throw new Error(err);
+              }
+
+              this.createResponse('Success').send();
             });
           });
     });
