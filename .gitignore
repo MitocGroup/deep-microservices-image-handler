@@ -121,3 +121,6 @@ deeploy.json
 
 #Transpiled Lambdas code
 **/Backend/src/**/*.js
+
+#Saved paramters
+.parameters.json
