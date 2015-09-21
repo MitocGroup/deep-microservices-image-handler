@@ -25,10 +25,10 @@
   ],
   "dependencies": {
     "@mitocgroup/deep-framework": "*",
-    "gm": "^1.18.1",
-    "babel-core": "5.5.*"
+    "babel-core": "5.5.*",
+    "file-type": "^2.11.0",
+    "gm": "^1.18.1"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "license": "MIT"
 }
