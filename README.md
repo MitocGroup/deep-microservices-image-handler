@@ -1,11 +1,9 @@
 DEEP Microservices Dynamic Image
 ================================
 
-[![NPM Version](https://img.shields.io/npm/v/deep-microservices-dynamic-image.svg)](https://npmjs.org/package/deep-microservices-dynamic-image)
 [![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-dynamic-image.svg)](https://travis-ci.org/MitocGroup/deep-microservices-dynamic-image)
-[![Dependencies Status](https://david-dm.org/MitocGroup/deep-microservices-dynamic-image.svg)](https://david-dm.org/MitocGroup/deep-microservices-dynamic-image)
 [![Coverage Status](https://coveralls.io/repos/MitocGroup/deep-microservices-dynamic-image/badge.svg)](https://coveralls.io/r/MitocGroup/deep-microservices-dynamic-image)
-[![Codacy Badge](https://api.codacy.com/project/badge/46841776f9044f018f0a71b3e114299d)](https://www.codacy.com/app/MitocGroup/deep-microservices-dynamic-image)
+[![Codacy Badge](https://api.codacy.com/project/badge/16436fea5e144e6ab94b79de75234d63)](https://www.codacy.com/app/deep/deep-microservices-dynamic-image)
 
 ## License
 
