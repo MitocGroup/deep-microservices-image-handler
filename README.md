@@ -1,7 +1,7 @@
 DEEP Microservices Dynamic Image
 ================================
 
-[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-dynamic-image.svg)](https://travis-ci.org/MitocGroup/deep-microservices-dynamic-image)
+[![Build Status](https://magnum.travis-ci.com/MitocGroup/deep-microservices-dynamic-image.svg?token=K6deyi9kwkfxRyXwcv6c)](https://magnum.travis-ci.com/MitocGroup/deep-microservices-dynamic-image)
 [![Coverage Status](https://coveralls.io/repos/MitocGroup/deep-microservices-dynamic-image/badge.svg)](https://coveralls.io/r/MitocGroup/deep-microservices-dynamic-image)
 [![Codacy Badge](https://api.codacy.com/project/badge/16436fea5e144e6ab94b79de75234d63)](https://www.codacy.com/app/deep/deep-microservices-dynamic-image)
 
