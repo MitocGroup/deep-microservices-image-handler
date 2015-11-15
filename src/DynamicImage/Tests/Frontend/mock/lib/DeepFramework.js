@@ -643,36 +643,36 @@ DeepFramework.Kernel.load({
     "www.amazon.com": "amzn1.application.12057697ba3347cda73dd9f6d3b9ce2b"
   },
   "microservices": {
-    "deep.ng.todo": {
+    "deep.dynamic.image": {
       "isRoot": false,
       "parameters": {},
       "resources": {
-        "todo": {
+        "dynamicImage": {
           "create": {
-            "description": "Lambda for creating todo",
+            "description": "Lambda for creating DynamicImage",
             "type": "lambda",
             "methods": [
               "POST"
             ],
-            "source": "src/Todo/Create"
+            "source": "src/DynamicImage/Create"
           },
           "retrieve": {
-            "description": "Retrieves todo",
+            "description": "Retrieves DynamicImage",
             "type": "lambda",
             "methods": ["GET"],
-            "source": "src/Todo/Retrieve"
+            "source": "src/DynamicImage/Retrieve"
           },
           "delete": {
-            "description": "Lambda for deleting todo",
+            "description": "Lambda for deleting DynamicImage",
             "type": "lambda",
             "methods": ["DELETE"],
-            "source": "src/Todo/Delete"
+            "source": "src/DynamicImage/Delete"
           },
           "update": {
-            "description": "Update todo",
+            "description": "Update DynamicImage",
             "type": "lambda",
             "methods": ["PUT"],
-            "source": "src/Todo/Update"
+            "source": "src/DynamicImage/Update"
           }
         }
       }
@@ -691,7 +691,7 @@ DeepFramework.Kernel.load({
       }
     }
   },
-  "microserviceIdentifier": "deep.ng.todo",
+  "microserviceIdentifier": "deep.dynamic.image",
   "awsAccountId": 722084099005,
   "propertyIdentifier": "deep.mg.prod",
   "timestamp": 1441198970148,
@@ -707,6 +707,6 @@ DeepFramework.Kernel.load({
     }
   },
   "tablesNames": {
-    "Todo": "DeepProdTododb0c09cc",
+    "DynamicImage": "DeepProdDynamicImagedb0c09cc",
   }
 }, function(){});
