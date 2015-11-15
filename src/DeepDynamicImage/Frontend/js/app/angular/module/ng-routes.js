@@ -6,7 +6,7 @@ var deepAsset = DeepFramework.Kernel.container.get('asset');
 export default {
   'dynamic-image': {
     url: '/dynamic-image',
-    controller: 'DynamicImageController',
+    controller: 'DeepDynamicImageController',
     controllerAs: 'dynamic-image',
     templateUrl: deepAsset.locate('@deep.dynamic.image:js/app/angular/views/image.html'),
     data: {

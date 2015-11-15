@@ -2,7 +2,7 @@
 
 import moduleName from '../name';
 
-export class DynamicImageController {
+export class DeepDynamicImageController {
   constructor($scope) {
     // @todo: inject this using ng DI
     //this._dynamicImageResource = DeepFramework.Kernel.get('resource').get('@deep.dynamic.image:dynamicImage');
@@ -11,9 +11,9 @@ export class DynamicImageController {
   }
 }
 
-angular.module(moduleName).controller('DynamicImageController',
+angular.module(moduleName).controller('DeepDynamicImageController',
   ['$scope', function(...args) {
-    return new DynamicImageController(...args);
+    return new DeepDynamicImageController(...args);
   },]
 
 );
