@@ -1,0 +1,45 @@
+language: node_js
+sudo: false
+node_js:
+- 0.12
+cache:
+  directories:
+  - $(npm root -g)
+branches:
+  only:
+    - master
+    - dev
+    - stage
+    - testing
+    - travis_ci
+env:
+  global:
+    #CODACY_PROJECT_TOKEN =[secured]
+    - secure: SsX/jM6gSD0yYgSuzYhaVjY9lrKDlMvOaZPvL7kuA8AMlBfrAIm2+0LMouup8sCll+5FegmEV+ohpUOwX6AbdJSRvJKHhcUKsVtvlGNmdt1EEwRo5Q//UIdH8AWzt6bVTF2mpIlquy0Gv6vpmzRyHziwsAQQCE/9tWqYhNw7H0xVEHr4WftMy8AFGoEn7ZJrf6xFf7Du9wONWrobZzSqyDEWSgBRVAqpPsFfdXR5d4Bo0ZZ71vpkQqwYm4ndF5fn9PDKzSruFwz2sKjtfDODPkh5uCznuBdY3J3dyIVkTNOQQ3N59HA6F877vsiBPymljTjBlA4m2rHP9kXxM4ld14uDsDePDE1wcxX2/QdEAs1tgeYmlh7y+y0nJ88CElEJw9zWN2K8FgCxv4a3VBy8DQbAYeJTBZWmjFEW7YOH0huvRNaflIRA6A4odAAA5OrG1oBh3+lenr5oDpK2Tp8FFBj+09odEY5fXtMfsJdhlmFg3drkw/NfgqgE8QYQTWe4MhhTLbsNqughTn1R8qhdfWdmvhO1zTNy2/l16ir4qnsjzE5nPSxgal+QdGtV3ACvG/Vww+3sAVumm9vhRB25D9o5BBBNk2Qr/sq/igiM2Ny96Z/6QlYKspSDR28Rk9ca4zH6IZC7Jz/5QaI5m8ohYr2QHakTl68wR5bIwY2GRlM=
+    #JSPM_GITHUB_AUTH_TOKEN=[secured]
+    - secure: IzfJEvFKDzR5lbRSo6lxFSv5q/99WTYlQTC4bMWYZRFNK1rkfsdd/qhSAUCUT+hkyapf1bp1aER9Z79Yi8ivtQpQRmSuiZ+yb+15YP1jCYuVjPFnthVOOrgsxJyjspYxgE5FzATra7KwlrkGL57kIeEqj1aR03qKT4vGd4IVygUa+9FEjEEhztgeJXaMX4/GOjui1yYhXm464/LaQNcUpiNE3h3KDPIvFX6Wvfvwmccu3JILXWAR46/t69tWhs36b5p/MpdoDlXceF6ZCbRWX35P8eqXUPoi84zimjgoCnpvVwaAEUiu+3N+EqwrSGVbQWjFxHBqz2i2BNCT6xfPmU7ijie5bpdAjOdtz/9TKmjZk+nup/rd7wgvIAAuUYnFRUYGmuAjJf/D/kCb4SKmF86JzSaSmWqy+E8EoZSd2tpl041l0cStOhws8LEKRHZPzXHJhnqWrfNw94qbwnk83hPim382TmG37bED9v+HUFDA7IaAREKgmXNwJyU5sEdCFPhlNmgX1TrAi2dw0IeGNtez2IeQ+R+AYg2D/cZW44lIjFGSKyufNnByd4Tzu6ONgFof68hspGlJpMhe8Hw4qP7b6rvy2iI9atB7mSVPTf/kUSmWfRP/y30Rak0x2TAy+fu7tpfyxAZPgG4D8N0VvL69cDQ4kM9+oDaqQcqsjJg=
+before_install:
+  - npm install -g jspm
+  - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
+  - npm install -g babel@5.8.19
+  - npm install -g browserify@11.2.0
+  - npm install -g jscs@2.1.1
+  - npm install -g mocha@2.3.3
+  - npm install -g mocha-babel@3.0.0
+  - npm install -g codacy-coverage@1.1.3
+  - npm install -g chai@3.3.0
+  - npm install -g jasmine-core@2.3.4
+  - npm install -g istanbul@0.3.21
+  - npm install -g istanbul-combine@0.3.0
+  - npm install -g phantomjs@1.9.18
+  - npm install -g karma@0.13.11
+  - npm install -g karma-jspm@2.0.1
+  - npm install -g karma-jasmine@0.3.6
+  - npm install -g karma-babel-preprocessor@5.2.2
+  - npm install -g karma-coverage@douglasduteil/karma-coverage#next
+  - npm install -g karma-verbose-reporter@0.0.3
+  - npm install -g karma-phantomjs-launcher@0.2.1
+  - npm install -g karma-ng-html2js-preprocessor@0.2.0
+  - cp test/package.json .
+after_success:
+  - npm run coverage
