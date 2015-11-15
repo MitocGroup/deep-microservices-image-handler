@@ -1,5 +1,5 @@
 {
-  "identifier": "deep.mg.dynamic.image",
+  "identifier": "deep.dynamic.image",
   "name": "DeepMgDynamicImage",
   "description": "DEEP Microservices Dynamic Image Service",
   "version": "0.0.1",
