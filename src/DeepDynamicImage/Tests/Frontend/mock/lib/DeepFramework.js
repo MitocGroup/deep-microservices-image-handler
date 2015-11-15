@@ -654,25 +654,25 @@ DeepFramework.Kernel.load({
             "methods": [
               "POST"
             ],
-            "source": "src/DynamicImage/Create"
+            "source": "src/DeepDynamicImage/Create"
           },
           "retrieve": {
             "description": "Retrieves DynamicImage",
             "type": "lambda",
             "methods": ["GET"],
-            "source": "src/DynamicImage/Retrieve"
+            "source": "src/DeepDynamicImage/Retrieve"
           },
           "delete": {
             "description": "Lambda for deleting DynamicImage",
             "type": "lambda",
             "methods": ["DELETE"],
-            "source": "src/DynamicImage/Delete"
+            "source": "src/DeepDynamicImage/Delete"
           },
           "update": {
             "description": "Update DynamicImage",
             "type": "lambda",
             "methods": ["PUT"],
-            "source": "src/DynamicImage/Update"
+            "source": "src/DeepDynamicImage/Update"
           }
         }
       }
