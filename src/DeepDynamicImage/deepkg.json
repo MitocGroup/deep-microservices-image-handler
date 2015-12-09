@@ -1,0 +1,21 @@
+{
+  "identifier": "deep.dynamic.image",
+  "name": "DeepMgDynamicImage",
+  "description": "DEEP Microservices Dynamic Image Service",
+  "version": "0.0.1",
+  "propertyRoot": true,
+  "author": {
+    "name": "Mitoc Group",
+    "email": "hello@mitocgroup.com",
+    "website": "http://www.mitocgroup.com"
+  },
+  "contributors": [
+    {
+      "name": "Stefan Hariton",
+      "email": "shariton@mitocgroup.com"
+    }
+  ],
+  "dependencies": {
+  }
+}
+
