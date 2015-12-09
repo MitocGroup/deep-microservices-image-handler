@@ -1,0 +1,31 @@
+{
+  "name": "deep-microservices-dynamic-image-provisioning",
+  "description": "AWS Lambda that provisions AWS infrastructure",
+  "version": "0.0.1",
+  "author": {
+    "name": "Mitoc Group",
+    "email": "hello@mitocgroup.com",
+    "website": "http://www.mitocgroup.com"
+  },
+  "contributors": [
+    {
+      "name": "DEEP Dev Team",
+      "email": "hello@deep.mg",
+      "website": "http://www.deep.mg"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/MitocGroup/deep-microservices-dynamic-image"
+  },
+  "scripts": {
+    "postinstall": "BABEL_ENV=production babe -x \".es6\" ./ --out-dir ./"
+  },
+  "keywords": [
+    "DEEP"
+  ],
+  "dependencies": {
+    "@mitocgroup/deep-framework": "*",
+    "babel-core": "5.5.*"
+  },
+  "license": "MIT"
+}
