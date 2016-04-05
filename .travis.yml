@@ -1,0 +1,29 @@
+language: node_js
+sudo: false
+node_js:
+  - '4.3'
+
+cache:
+  directories:
+    - $(npm root -g)
+
+branches:
+  only:
+    - master
+    - dev
+    - stage
+    - test
+
+before_install:
+  - npm run prepare
+
+after_success:
+  - npm run coverage
+
+env:
+  global:
+    # JSPM_GITHUB_AUTH_TOKEN=[secured]
+    - secure: IzfJEvFKDzR5lbRSo6lxFSv5q/99WTYlQTC4bMWYZRFNK1rkfsdd/qhSAUCUT+hkyapf1bp1aER9Z79Yi8ivtQpQRmSuiZ+yb+15YP1jCYuVjPFnthVOOrgsxJyjspYxgE5FzATra7KwlrkGL57kIeEqj1aR03qKT4vGd4IVygUa+9FEjEEhztgeJXaMX4/GOjui1yYhXm464/LaQNcUpiNE3h3KDPIvFX6Wvfvwmccu3JILXWAR46/t69tWhs36b5p/MpdoDlXceF6ZCbRWX35P8eqXUPoi84zimjgoCnpvVwaAEUiu+3N+EqwrSGVbQWjFxHBqz2i2BNCT6xfPmU7ijie5bpdAjOdtz/9TKmjZk+nup/rd7wgvIAAuUYnFRUYGmuAjJf/D/kCb4SKmF86JzSaSmWqy+E8EoZSd2tpl041l0cStOhws8LEKRHZPzXHJhnqWrfNw94qbwnk83hPim382TmG37bED9v+HUFDA7IaAREKgmXNwJyU5sEdCFPhlNmgX1TrAi2dw0IeGNtez2IeQ+R+AYg2D/cZW44lIjFGSKyufNnByd4Tzu6ONgFof68hspGlJpMhe8Hw4qP7b6rvy2iI9atB7mSVPTf/kUSmWfRP/y30Rak0x2TAy+fu7tpfyxAZPgG4D8N0VvL69cDQ4kM9+oDaqQcqsjJg=
+    # CODACY_PROJECT_TOKEN=[secured]
+    - secure: DVIQY/YPaBR2qj9+xenQiJvFo0REwq0IatNGwHZ3CuYQYb/e9c931P4WKqp1rlnYSGJrhwejWxXfLcXDpSvQ8ba4CElWKmdS1dgUtFlm5b6Ct4r51UmGwuqGeC75/bUi5Q7qDMIyjEvn/wjNfF1s1re8Pzp2+Sy0VKD8ymEWO+HaQjxl59P37OJyByFeFx3krKyZA6kgGhXMg/NgS0ODtHFtR+NUrTCxXC5TanIaIGipzrSkfEPselNIqd+q92sCKwh6VPOeamLyUXxtZN6l6f1vnrhfEj62yHSDsDSNp03cR38HL809a1nmMD8pOiGz3cKCGOB85EBJ0Tq2kkicp3DGYB8AfVCZqbResI4+T/xSndXBA19lVRZ9RnmnZDOmpCDFT0uXur251O5L1eytVgVUZLnVf0nPlMerqdwDszoQtfwE+nT26QGaR+yjb1MIRyXlDGp/lBo73qv4XlCmGGUU52m5aBD98dEQGfkX07dETNCw+7b8dRnl4AEsqQSEh7HADXp227reCFQLwrKkJ0dF54V6L9w0hr7bsdUiaWaEyyQ2efjPzIMdJTeDwei0eOC2yKw5qmCT96UayDPcqEPG3QOd0gOMBQUSD79RcdOylYgalOwnDo6lsvWBDfAtI9Sz5aAvGDx+G6ZMy7EO7LHInvXHqGhcXgKVy650cg0=
+
