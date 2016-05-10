@@ -3,7 +3,6 @@
   "name": "DeepMgDynamicImage",
   "description": "DEEP Microservices Dynamic Image Service",
   "version": "0.0.1",
-  "propertyRoot": true,
   "author": {
     "name": "Mitoc Group",
     "email": "hello@mitocgroup.com",
@@ -16,6 +15,8 @@
     }
   ],
   "dependencies": {
-  }
+  },
+  "propertyRoot": false,
+  "frontendEngine": ["angular"]
 }
 

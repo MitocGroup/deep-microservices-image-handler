@@ -112,6 +112,7 @@ lib/*.pack/*
 src/*.pack/*
 lib/*/*.compiled
 src/*/*.compiled
+**/compile
 lib.compiled/*
 /tests/*
 coverage/*
@@ -124,3 +125,6 @@ deeploy.json
 
 #Saved paramters
 .parameters.json
+
+# Root microservice
+**/src/deep-root-angular
