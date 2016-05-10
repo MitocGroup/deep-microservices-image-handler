@@ -1,6 +1,6 @@
-/**
- * Created by Stefan Hariton on 9/21/15.
- */
+'use strict';
+
+import DeepFramework from 'deep-framework';
 
 export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
