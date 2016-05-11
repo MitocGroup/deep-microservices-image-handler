@@ -1,12 +1,8 @@
-/**
- * Created by Stefan Hariton on 9/14/15.
- */
-
 'use strict';
 
-import DeepFramework                from '@mitocgroup/deep-framework';
-import AWS                          from 'aws-sdk';
-import Hasher                       from './Hasher';
+import DeepFramework from 'deep-framework';
+import AWS from 'aws-sdk';
+import Hasher from './Hasher';
 
 export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 

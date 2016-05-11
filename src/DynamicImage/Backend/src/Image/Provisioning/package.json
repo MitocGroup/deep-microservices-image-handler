@@ -18,14 +18,15 @@
     "url": "https://github.com/MitocGroup/deep-microservices-dynamic-image"
   },
   "scripts": {
-    "postinstall": "BABEL_ENV=production babe -x \".es6\" ./ --out-dir ./"
+    "postinstall": "npm run compile",
+    "compile": "deepify compile-es6 `pwd`"
   },
-  "keywords": [
-    "DEEP"
-  ],
   "dependencies": {
-    "@mitocgroup/deep-framework": "*",
-    "babel-core": "5.5.*"
+    "deep-framework": "^1.x.x"
   },
-  "license": "MIT"
+  "devDependencies": {
+  },
+  "preferGlobal": false,
+  "private": true,
+  "analyze": true
 }

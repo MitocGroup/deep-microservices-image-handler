@@ -112,6 +112,7 @@ lib/*.pack/*
 src/*.pack/*
 lib/*/*.compiled
 src/*/*.compiled
+**/compile
 lib.compiled/*
 /tests/*
 coverage/*
@@ -124,3 +125,20 @@ deeploy.json
 
 #Saved paramters
 .parameters.json
+
+# Root microservice
+**/src/deep-root-angular
+
+# Lambda archives and checksums
+**/Backend/src/**/*.zip
+**/Backend/src/**/*.sfv
+**/Backend/src/**/_config.json
+
+# Frontend dependencies
+**/js/vendor/
+**/Frontend/vendor/
+
+# Coverage files
+**/coverage
+
+

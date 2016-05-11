@@ -1,0 +1,38 @@
+{
+  "name": "deep-dynamic-image-tests-frontend",
+  "version": "0.0.1",
+  "description": "DEEP Dynamic Image microservice",
+  "keywords": [
+    "DEEP",
+    "Digital Enterprise End-To-End Platform",
+    "Registry"
+  ],
+  "homepage": "https://github.com/MitocGroup/deep-microservices-dynamic-image",
+  "bugs": {
+    "url": "https://github.com/MitocGroup/deep-microservices-dynamic-image/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Mitoc Group",
+    "email": "hello@mitocgroup.com",
+    "website": "www.mitocgroup.com"
+  },
+  "contributors": [
+    {
+      "name": "DEEP Dev Team",
+      "email": "hello@deep.mg",
+      "website": "www.deep.mg"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MitocGroup/deep-microservices-dynamic-image.git"
+  },
+  "scripts": {
+    "install": "echo \"No install specified\" && exit 0",
+    "test": "echo \"No test specified\" && exit 0",
+    "coverage": "echo \"No coverage specified\" && exit 0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

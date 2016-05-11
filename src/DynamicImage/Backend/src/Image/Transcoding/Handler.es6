@@ -1,13 +1,9 @@
-/**
- * Created by Stefan Hariton on 9/14/15.
- */
-
 'use strict';
 
-import DeepFramework                from '@mitocgroup/deep-framework';
-import gm                           from 'gm';
-import AWS                          from 'aws-sdk';
-import fileType                     from 'file-type';
+import DeepFramework from 'deep-framework';
+import gm from 'gm';
+import AWS from 'aws-sdk';
+import fileType from 'file-type';
 
 export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
