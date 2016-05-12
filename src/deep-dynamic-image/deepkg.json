@@ -1,6 +1,6 @@
 {
-  "identifier": "deep.mg.dynamic.image",
-  "name": "DeepMgDynamicImage",
+  "identifier": "deep-dynamic-image",
+  "name": "deep-dynamic-image",
   "description": "DEEP Microservices Dynamic Image Service",
   "version": "0.0.1",
   "author": {
@@ -19,4 +19,3 @@
   "propertyRoot": false,
   "frontendEngine": ["angular"]
 }
-

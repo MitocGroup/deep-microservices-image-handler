@@ -17,7 +17,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
     let microserviceIdentifier = DeepFramework.Kernel.config.microserviceIdentifier;
     this._bucketName = DeepFramework.Kernel.config.microservices[microserviceIdentifier].parameters.s3Bucket;
     this._parameters = undefined;
-    this._transcoderLambda = DeepFramework.Kernel.get('resource').get('@deep.mg.dynamic.image:image').action('transcoder');
+    this._transcoderLambda = DeepFramework.Kernel.get('resource').get('@deep-dynamic-image:image').action('transcoder');
     console.log('constructed');
   }
 
