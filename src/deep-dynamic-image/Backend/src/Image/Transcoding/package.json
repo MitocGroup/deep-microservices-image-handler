@@ -26,9 +26,5 @@
     "gm": "^1.18.1",
     "deep-framework": "^1.x.x"
   },
-  "devDependencies": {
-  },
-  "preferGlobal": false,
-  "private": true,
-  "analyze": true
+  "private": true
 }

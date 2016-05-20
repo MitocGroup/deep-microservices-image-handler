@@ -1,5 +1,5 @@
 {
-  "name": "deep-dynamic-image-frontend-tests",
+  "name": "deep-dynamic-image-frontend-test",
   "version": "0.0.1",
   "description": "DEEP Dynamic Image microservice",
   "keywords": [
@@ -34,5 +34,6 @@
     "coverage": "echo \"No coverage specified\" && exit 0"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "private": true
 }

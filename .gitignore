@@ -122,6 +122,8 @@ deeploy.json
 
 #Transpiled Lambdas code
 **/Backend/src/**/*.js
+_vars.sh
+GitDiffWalker.js
 
 #Saved paramters
 .parameters.json
@@ -140,5 +142,16 @@ deeploy.json
 
 # Coverage files
 **/coverage
+
+# Configs
+.cfg.deeploy.json
+.cfg.deeploy.json.production
+.cfg.deeploy.json.local
+
+deeploy.json
+deeploy.json.production
+deeploy.json.local
+
+.parameters.json
 
 
