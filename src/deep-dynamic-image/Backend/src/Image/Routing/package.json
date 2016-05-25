@@ -19,15 +19,11 @@
   },
   "scripts": {
     "postinstall": "npm run compile",
-    "compile": "deepify compile-es6 `pwd`"
+    "compile": "deepify compile es6 `pwd`"
   },
   "dependencies": {
     "crc-32": "*",
     "deep-framework": "^1.x.x"
   },
-  "devDependencies": {
-  },
-  "preferGlobal": false,
-  "private": true,
-  "analyze": true
+  "private": true
 }

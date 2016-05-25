@@ -1,12 +1,12 @@
 {
-  "name": "dynamic-image-backend-test",
+  "name": "deep-dynamic-image-backend-test",
   "version": "0.0.1",
-  "description": "Description of dynamic-image-backend-test",
+  "description": "Description of deep-dynamic-image-backend-test",
   "scripts": {
-    "preinstall": "node-bin/preinstall.sh",
-    "install": "node-bin/install.sh",
-    "postinstall": "node-bin/postinstall.sh",
-    "test": "node-bin/test.sh"
+    "preinstall": "bash node-bin/preinstall.sh",
+    "install": "bash node-bin/install.sh",
+    "postinstall": "bash node-bin/postinstall.sh",
+    "test": "bash node-bin/test.sh"
   },
   "dependencies": {},
   "devDependencies": {},
