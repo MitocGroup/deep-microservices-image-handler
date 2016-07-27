@@ -117,14 +117,8 @@ lib.compiled/*
 /tests/*
 coverage/*
 
-.cfg.deeploy.json
-deeploy.json
-
 #Transpiled Lambdas code
 **/Backend/src/**/*.js
-
-#Saved paramters
-.parameters.json
 
 # Root microservice
 **/src/deep-root-angular
@@ -152,3 +146,13 @@ _vars.sh
 
 shared-lib
 !backend/shared-lib
+.parameters.json
+
+# Configs
+.cfg.deeploy.json
+.cfg.deeploy.json.production
+.cfg.deeploy.json.local
+
+deeploy.json
+deeploy.json.production
+deeploy.json.local
