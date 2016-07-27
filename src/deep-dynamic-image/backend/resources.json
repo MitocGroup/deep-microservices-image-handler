@@ -6,7 +6,7 @@
       "methods": [
         "GET"
       ],
-      "source": "src/Image/Routing"
+      "source": "src/image/routing"
     },
     "transcoder": {
       "description": "Transcodes the image",
@@ -14,7 +14,7 @@
       "methods": [
         "GET"
       ],
-      "source": "src/Image/Transcoding"
+      "source": "src/image/transcoding"
     }
   }
 }
