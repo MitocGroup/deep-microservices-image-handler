@@ -5,8 +5,6 @@
 
 source $(dirname $0)/_head.sh
 
-echo "TEST"
-
 ######################
 ### Run unit tests ###
 ######################

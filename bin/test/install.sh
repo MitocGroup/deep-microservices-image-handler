@@ -72,8 +72,6 @@ if [ "$__IS_CONCURRENT_SCRIPT" == "$__NONE" ] || [ "$__IS_CONCURRENT_SCRIPT" == 
     ################################################################
     echo "Partially initializing backend: ${BACKEND_MICROAPP_PATHS}"
     cd ${__SRC_PATH} && deepify compile dev -m "${BACKEND_MICROAPP_PATHS}"
-
-    echo "FINISHED INSTALL"
   fi
 
 fi

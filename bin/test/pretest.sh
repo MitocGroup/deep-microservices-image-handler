@@ -52,8 +52,6 @@ isLocalServerUp () {
   exit 0
 }
 
-echo "Pretest"
-
 ##########################################################
 ### launch local server and check if it up and running ###
 ##########################################################
