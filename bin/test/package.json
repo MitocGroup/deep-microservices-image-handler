@@ -17,6 +17,7 @@
   "scripts": {
     "preinstall": "bin/test/preinstall.sh",
     "install": "bin/test/install.sh ${TEST_SUITE}",
+    "postinstall": "npm run pretest",
     "pretest": "bin/test/pretest.sh",
     "test": "bin/test/test.sh ${TEST_SUITE}",
     "posttest": "bin/test/posttest.sh && npm run prepare-coverage",
