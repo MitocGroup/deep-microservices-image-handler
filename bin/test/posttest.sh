@@ -5,6 +5,8 @@
 
 source $(dirname $0)/_head.sh
 
+echo "POSTEST"
+
 ######################################
 ### Start protractor tests for e2e ###
 ######################################

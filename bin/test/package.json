@@ -17,9 +17,9 @@
   "scripts": {
     "preinstall": "bin/test/preinstall.sh",
     "install": "bin/test/install.sh ${TEST_SUITE}",
-    "pretest": "bin/test/pretest.sh",
-    "test": "bin/test/test.sh ${TEST_SUITE}",
-    "posttest": "bin/test/posttest.sh && npm run prepare-coverage",
+    "pretest": "echo 'PRETEST' && bin/test/pretest.sh",
+    "test": "echo 'TEST' && bin/test/test.sh ${TEST_SUITE}",
+    "posttest": "echo 'POSTTEST' && bin/test/posttest.sh && npm run prepare-coverage",
     "prepare-coverage": "bin/test/prepare-coverage.sh ${TEST_SUITE}",
     "coverage": "bin/test/coverage.sh ${TEST_SUITE}",
     "remove-coverage": "bin/test/remove-coverage.sh",
