@@ -116,6 +116,7 @@ src/*/*.compiled
 lib.compiled/*
 /tests/*
 coverage/*
+coverages/*
 
 #Transpiled Lambdas code
 **/backend/src/**/*.js
@@ -141,8 +142,6 @@ GitHubMsgPublisher.js
 _vars.sh
 /package.json
 **/.sass-cache/
-**/coverage/
-**/coverages/
 
 shared-lib
 !backend/shared-lib
