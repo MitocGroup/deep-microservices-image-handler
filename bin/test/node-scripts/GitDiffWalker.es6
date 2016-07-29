@@ -584,7 +584,16 @@ export class GitDiffWalker {
     return names;
   }
 
-  setTestPaths() {
+  static checkIfPackageJsonExists() {
+    console.log('EXISTS PACKAGE.JSON: ', CoverageComparator.accessSync(path.join(srcPath, '../package.json')));
+  }
+
+  /**
+   * @param {Function} cb
+   */
+  setTestPaths(cb) {
+
+    GitDiffWalker.checkIfPackageJsonExists();
 
     let backendMicroAppPaths = GitDiffWalker.NONE;
     let frontendMicroAppPaths = GitDiffWalker.NONE;
@@ -593,6 +602,8 @@ export class GitDiffWalker {
     if (this.isFrontedCodeChanged || this.isFrontendTestsChanged) {
       frontendMicroAppPaths = this.getFrontendMicroAppNames();
     }
+
+    GitDiffWalker.checkIfPackageJsonExists();
 
     if (this.isBackendTestsChanged || this.isBackendCodeChanged) {
       backendMicroAppPaths = this.getBackendMicroAppNames();
@@ -610,7 +621,11 @@ export class GitDiffWalker {
       backendMicroAppIdentifiers = this.getBackendMicroAppIdentifiers();
     }
 
+    GitDiffWalker.checkIfPackageJsonExists();
+
     this.isFullCIRun((isFullCIRun) => {
+
+      GitDiffWalker.checkIfPackageJsonExists();
 
       if (isFullCIRun) {
         frontendMicroAppPaths = backendMicroAppPaths = this._allMicroAppPaths;
@@ -645,9 +660,15 @@ export class GitDiffWalker {
       console.log(`backend tests names: ${this.getBackendTestMicroAppNames()}`);
       console.log(`backend code names: ${this.getBackendCodeMicroAppNames()}`);
 
+      GitDiffWalker.checkIfPackageJsonExists();
+
     });
   }
 }
 
+GitDiffWalker.checkIfPackageJsonExists();
+
 let walker = new GitDiffWalker();
-walker.setTestPaths();
+
+GitDiffWalker.checkIfPackageJsonExists();
+walker.setTestPaths(() => console.log('done setting env vars'));
