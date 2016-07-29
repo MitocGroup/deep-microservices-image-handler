@@ -124,7 +124,14 @@ coverages/*
 # Root microservice
 **/src/deep-root-angular
 
-# Lambda archives and checksums
+# App specific files
+.parameters.json
+deeploy.json*
+*_config.json*
+*.provisioning.json*
+
+# Backend files
+**/backend/src/**/*.js
 **/backend/src/**/*.zip
 **/backend/src/**/*.sfv
 **/backend/src/**/_config.json

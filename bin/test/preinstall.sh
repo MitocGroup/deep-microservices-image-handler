@@ -113,14 +113,16 @@ if [ "$TRAVIS" == "true" ]; then
     git branch $TRAVIS_BRANCH
     git checkout $TRAVIS_BRANCH
     git checkout $TRAVIS_FROM_BRANCH
-    echo 'GIT: ' && pwd && ls -la && head -n 50 package.json
-    cp bin/test/package.json .
-    echo 'AFTER: ' && pwd && ls -la && head -n 50 package.json
   fi
 
 else
   export TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=%s)
 fi
+
+#############################################################################################
+### Copy package.json again - fixes issue when .gitignore doesn't contain "/package.json" ###
+#############################################################################################
+cp bin/test/package.json .
 
 ############################################################################################
 ### Transpile from ES6 to ES5 by using deepify and execute to retrieve the changed stuff ###

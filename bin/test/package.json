@@ -15,9 +15,8 @@
     }
   ],
   "scripts": {
-    "preinstall": "echo 'PREINSTALL' && ls -la && head -n 50 package.json && bin/test/preinstall.sh",
-    "install": "echo 'PREINSTALL' && ls -la && head -n 50 package.json && bin/test/install.sh ${TEST_SUITE}",
-    "postinstall": "echo 'PREINSTALL' && ls -la && head -n 50 package.json",
+    "preinstall": "bin/test/preinstall.sh",
+    "install": "bin/test/install.sh ${TEST_SUITE}",
     "pretest": "bin/test/pretest.sh",
     "test": "bin/test/test.sh ${TEST_SUITE}",
     "posttest": "bin/test/posttest.sh && npm run prepare-coverage",
