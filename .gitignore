@@ -140,7 +140,6 @@ CoverageComparator.js
 CoverageManager.js
 GitHubMsgPublisher.js
 _vars.sh
-/package.json
 **/.sass-cache/
 
 shared-lib
