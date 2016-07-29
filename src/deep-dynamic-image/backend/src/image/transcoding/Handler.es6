@@ -15,8 +15,8 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
     this._graphicsMagic = gm.subClass({imageMagick: true});
     this._s3 = new AWS.S3();
-    this._microserviceIdentifier = DeepFramework.Kernel.config.microserviceIdentifier;
-    this._s3BucketName = DeepFramework.Kernel.config.microservices[this.microserviceIdentifier].parameters.s3Bucket;
+    this._microserviceIdentifier = this.kernel.config.microserviceIdentifier;
+    this._s3BucketName = this.kernel.config.microservices[this.microserviceIdentifier].parameters.s3Bucket;
   }
 
   get graphicsMagic() {

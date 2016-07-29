@@ -12,18 +12,21 @@ export default {
   'identityPoolId': 'us-east-1:xxxxxxxx-xxxx-xxxx-xxxx-xx0123456789',
   'identityProviders': '',
   'microservices': {
-    'deep-hello-world': {
+    'deep-dynamic-image': {
       'isRoot': false,
-      'parameters': {},
+      'parameters': {
+        's3Bucket': 'deep.dev.public.dfsfsd454',
+        'apiGatewayHostname': 'gf54fg4354.execute-api.us-east-1.amazonaws.com',
+        'apiGatewayPrefix': 'prod/image/'
+      },
       'resources': {
-        'say-hello': {
-          'create-msg': {
+        'image': {
+          'router': {
             'type': 'lambda',
             'methods': [
-              'POST'
+              'GET'
             ],
             'forceUserIdentity': true,
-            'validationSchema': 'name-data',
             'apiCache': {
               'enabled': false,
               'ttl': -1
@@ -31,18 +34,17 @@ export default {
             'region': 'us-west-2',
             'scope': 'public',
             'source': {
-              'api': '/deep-hello-world/say-hello/create-msg',
-              'original': 'arn:aws:lambda:::function:deep-hello-world-say-hello-create-msg',
-              '_localPath': './src/deep-hello-world/backend/src/say-hello/create-msg/bootstrap.js'
+              'api': '/deep-dynamic-image/image/router',
+              'original': 'arn:aws:lambda:::function:deep-dynamic-image-image-router',
+              '_localPath': './src/deep-dynamic-image/backend/src/image/routing/bootstrap.js'
             }
           },
-          'create-fs': {
+          'transcoder': {
             'type': 'lambda',
             'methods': [
-              'POST'
+              'GET'
             ],
             'forceUserIdentity': true,
-            'validationSchema': 'name-data',
             'apiCache': {
               'enabled': false,
               'ttl': -1
@@ -50,34 +52,15 @@ export default {
             'region': 'us-west-2',
             'scope': 'public',
             'source': {
-              'api': '/deep-hello-world/say-hello/create-fs',
-              'original': 'arn:aws:lambda:::function:deep-hello-world-say-hello-create-fs',
-              '_localPath': './src/deep-hello-world/backend/src/say-hello/create-fs/bootstrap.js'
-            }
-          },
-          'create-db': {
-            'type': 'lambda',
-            'methods': [
-              'POST'
-            ],
-            'forceUserIdentity': true,
-            'validationSchema': 'name-data',
-            'apiCache': {
-              'enabled': false,
-              'ttl': -1
-            },
-            'region': 'us-west-2',
-            'scope': 'public',
-            'source': {
-              'api': '/deep-hello-world/say-hello/create-db',
-              'original': 'arn:aws:lambda:::function:deep-hello-world-say-hello-create-db',
-              '_localPath': './src/deep-hello-world/backend/src/say-hello/create-db/bootstrap.js'
+              'api': '/deep-dynamic-image/image/transcoder',
+              'original': 'arn:aws:lambda:::function:deep-dynamic-image-image-transcoder',
+              '_localPath': './src/deep-dynamic-image/backend/src/image/transcoding/bootstrap.js'
             }
           }
         }
       }
     },
-    'deep-root-vanilla': {
+    'deep-root-angular': {
       'isRoot': true,
       'parameters': {},
       'resources': {
@@ -96,8 +79,8 @@ export default {
             'scope': 'private',
             'source': {
               'api': null,
-              'original': 'arn:aws:lambda:::function:deep-root-vanilla-async-config-dump',
-              '_localPath': './src/deep-root-vanilla/backend/src/async-config/dump/bootstrap.js'
+              'original': 'arn:aws:lambda:::function:deep-root-angular-async-config-dump',
+              '_localPath': './src/deep-root-angular/backend/src/async-config/dump/bootstrap.js'
             }
           }
         },
@@ -116,8 +99,8 @@ export default {
             'scope': 'private',
             'source': {
               'api': null,
-              'original': 'arn:aws:lambda:::function:deep-root-vanilla-scheduler-rule',
-              '_localPath': './src/deep-root-vanilla/backend/src/scheduler/rule/bootstrap.js'
+              'original': 'arn:aws:lambda:::function:deep-root-angular-scheduler-rule',
+              '_localPath': './src/deep-root-angular/backend/src/scheduler/rule/bootstrap.js'
             }
           }
         },
@@ -136,8 +119,8 @@ export default {
             'scope': 'private',
             'source': {
               'api': null,
-              'original': 'arn:aws:lambda:::function:deep-root-vanilla-ddb-eventual-consistency-listen-queues',
-              '_localPath': './src/deep-root-vanilla/backend/src/ddb-eventual-consistency/listen-queues/bootstrap.js'
+              'original': 'arn:aws:lambda:::function:deep-root-angular-ddb-eventual-consistency-listen-queues',
+              '_localPath': './src/deep-root-angular/backend/src/ddb-eventual-consistency/listen-queues/bootstrap.js'
             }
           },
           'pool-queue': {
@@ -154,8 +137,8 @@ export default {
             'scope': 'private',
             'source': {
               'api': null,
-              'original': 'arn:aws:lambda:::function:deep-root-vanilla-ddb-eventual-consistency-pool-queue',
-              '_localPath': './src/deep-root-vanilla/backend/src/ddb-eventual-consistency/pool-queue/bootstrap.js'
+              'original': 'arn:aws:lambda:::function:deep-root-angular-ddb-eventual-consistency-pool-queue',
+              '_localPath': './src/deep-root-angular/backend/src/ddb-eventual-consistency/pool-queue/bootstrap.js'
             }
           }
         }
@@ -163,9 +146,14 @@ export default {
     }
   },
   'globals': {
-    'favicon': '@deep-root-vanilla:img/favicon.ico',
+    'security': {
+      'identityProviders': {
+        'www.amazon.com': 'amzn1.application.465464565fdhgfhgfhgf'
+      }
+    },
+    'favicon': '@deep-root-angular:img/favicon.ico',
     'pageLoader': {
-      'src': '@deep-root-vanilla:img/loader.gif',
+      'src': '@deep-root-angular:img/loader.gif',
       'alt': 'Loading...'
     },
     'engine': {
@@ -173,6 +161,8 @@ export default {
     }
   },
   'searchDomains': {},
+  'validationSchemas': [],
+  'modelsSettings': [],
   'validationSchemas': [
     'name-data'
   ],
@@ -187,28 +177,28 @@ export default {
     }
   ],
   'forceUserIdentity': false,
-  'microserviceIdentifier': 'deep-hello-world',
-  'awsAccountId': 123456789123,
-  'appIdentifier': 'gfhfgdhfghgjgh7687687fghgfhgf',
-  'timestamp': 1465996738254,
+  'microserviceIdentifier': 'deep-dynamic-image',
+  'awsAccountId': 123456789012,
+  'appIdentifier': 'fsdgfdsghfdghgdf56765876876876ghjhg',
+  'timestamp': 1469784760493,
   'buckets': {
     'temp': {
-      'name': 'fdgfd56765gfhjgj768768ghjjhgjhg898-temp'
+      'name': 'dfhgfh56566556dfhgfhgfhf5546gfgfg-temp'
     },
     'public': {
-      'name': 'fdgfd56765gfhjgj768768ghjjhgjhg898-public'
+      'name': 'dfhgfh56566556dfhgfhgfhf5546gfgfg-public'
     },
     'private': {
-      'name': 'fdgfd56765gfhjgj768768ghjjhgjhg898-private'
+      'name': 'dfhgfh56566556dfhgfhgfhf5546gfgfg-private'
     },
     'shared': {
-      'name': 'fdgfd56765gfhjgj768768ghjjhgjhg898-shared'
+      'name': 'dfhgfh56566556dfhgfhgfhf5546gfgfg-shared'
     }
   },
   'tablesNames': {
     'name': 'DeepDevName4a7dbaed'
   },
   'cacheDsn': '',
-  'name': 'deep-hello-world-say-hello-create-db',
-  'path': './src/deep-hello-world/backend/src/say-hello/create-db/bootstrap.js'
+  'name': 'deep-dynamic-image-image-router',
+  'path': './src/deep-dynamic-image/backend/src/image/routing/bootstrap.js'
 };
