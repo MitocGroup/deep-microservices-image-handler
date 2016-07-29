@@ -585,7 +585,10 @@ export class GitDiffWalker {
   }
 
   static checkIfPackageJsonExists() {
-    console.log('EXISTS PACKAGE.JSON: ', CoverageComparator.accessSync(path.join(srcPath, '../package.json')));
+    console.log('EXISTS PACKAGE.JSON: ', CoverageComparator.accessSync(
+        path.join(__dirname, '../../../package.json')
+      )
+    );
   }
 
   /**
