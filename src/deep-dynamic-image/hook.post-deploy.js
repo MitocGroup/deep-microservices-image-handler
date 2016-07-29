@@ -4,6 +4,7 @@
 
 /* eslint no-unused-vars: 0 */
 /* eslint no-use-before-define: 0 */
+/* eslint no-extra-bind: 0 */
 
 'use strict';
 
@@ -27,8 +28,6 @@ var exports = module.exports = function(callback) {
     s3.getBucketWebsite({Bucket: bucketName}, function(err, existingWebsiteConfiguration) {
       if (err) {
         cb(err);
-
-        return;
       }
 
       existingWebsiteConfiguration.RoutingRules = [
@@ -64,15 +63,11 @@ var exports = module.exports = function(callback) {
       s3.putBucketWebsite(websiteConfiguration, function(err, response) {
         if (err) {
           cb(err);
-
-          return;
         } else {
           cb(response);
-
-          return;
         }
       });
-    });
+    }.bind(this));
   }
 
   function put1x1EmptyPixel(cb) {
@@ -89,19 +84,13 @@ var exports = module.exports = function(callback) {
         s3.putObject(parameters, function(err, response) {
           if (err) {
             cb(err);
-
-            return;
           } else {
             cb(response);
-
-            return;
           }
         });
       } else {
         cb(response);
-
-        return;
       }
-    });
+    }.bind(this));
   }
 };
