@@ -113,7 +113,7 @@ if [ "$TRAVIS" == "true" ]; then
     git branch $TRAVIS_BRANCH
     git checkout $TRAVIS_BRANCH
     git checkout $TRAVIS_FROM_BRANCH
-    echo 'GIT: ' && pwd && ls -la ../.. && head -n 50 ../../package.json
+    echo 'GIT: ' && pwd && ls -la && head -n 50 package.json
   fi
 
 else
