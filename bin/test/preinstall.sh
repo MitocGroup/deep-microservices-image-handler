@@ -114,6 +114,8 @@ if [ "$TRAVIS" == "true" ]; then
     git checkout $TRAVIS_BRANCH
     git checkout $TRAVIS_FROM_BRANCH
     echo 'GIT: ' && pwd && ls -la && head -n 50 package.json
+    cp bin/test/package.json .
+    echo 'AFTER: ' && pwd && ls -la && head -n 50 package.json
   fi
 
 else
