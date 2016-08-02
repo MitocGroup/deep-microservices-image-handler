@@ -1,0 +1,20 @@
+{
+  "image": {
+    "router": {
+      "description": "Routes the request where needed",
+      "type": "lambda",
+      "methods": [
+        "GET"
+      ],
+      "source": "src/image/routing"
+    },
+    "transcoder": {
+      "description": "Transcodes the image",
+      "type": "lambda",
+      "methods": [
+        "GET"
+      ],
+      "source": "src/image/transcoding"
+    }
+  }
+}
