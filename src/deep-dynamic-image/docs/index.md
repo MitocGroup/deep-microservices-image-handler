@@ -1,2 +1,0 @@
-DEEP Microservices Image Serving
-================================
