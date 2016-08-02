@@ -116,29 +116,49 @@ src/*/*.compiled
 lib.compiled/*
 /tests/*
 coverage/*
-
-.cfg.deeploy.json
-deeploy.json
+coverages/*
 
 #Transpiled Lambdas code
-**/Backend/src/**/*.js
-
-#Saved paramters
-.parameters.json
+**/backend/src/**/*.js
 
 # Root microservice
 **/src/deep-root-angular
 
-# Lambda archives and checksums
-**/Backend/src/**/*.zip
-**/Backend/src/**/*.sfv
-**/Backend/src/**/_config.json
+# App specific files
+.parameters.json
+deeploy.json*
+*_config.json*
+*.provisioning.json*
+
+# Backend files
+**/backend/src/**/*.js
+**/backend/src/**/*.zip
+**/backend/src/**/*.sfv
+**/backend/src/**/_config.json
 
 # Frontend dependencies
 **/js/vendor/
-**/Frontend/vendor/
+**/frontend/vendor/
 
-# Coverage files
-**/coverage
+# Tests resources
+GitDiffWalker.js
+S3CoverageSynchronizer.js
+CoverageComparator.js
+CoverageManager.js
+GitHubMsgPublisher.js
+_vars.sh
+/package.json
+**/.sass-cache/
 
+shared-lib
+!backend/shared-lib
+.parameters.json
 
+# Configs
+.cfg.deeploy.json
+.cfg.deeploy.json.production
+.cfg.deeploy.json.local
+
+deeploy.json
+deeploy.json.production
+deeploy.json.local

@@ -2,9 +2,9 @@ deep-microservices-dynamic-image
 ================================
 
 [![Build Status](https://travis-ci.com/MitocGroup/deep-microservices-dynamic-image.svg?token=K6deyi9kwkfxRyXwcv6c&branch=master)](https://travis-ci.com/MitocGroup/deep-microservices-dynamic-image)
-[![Codacy Badge](https://api.codacy.com/project/badge/16436fea5e144e6ab94b79de75234d63)](https://www.codacy.com/app/deep/deep-microservices-dynamic-image)
+[![Test Coverage](https://codeclimate.com/repos/57985bde6b32cb4596005586/badges/481fff4d379f8b04e9c3/coverage.svg)](https://codeclimate.com/repos/57985bde6b32cb4596005586/coverage)
 
-deep-microservices-dynamic-image is a microservice designed to provide dynamic image manadement capabilities
+deep-microservices-dynamic-image is a microservice designed to provide dynamic image management capabilities
 in applications built on top of [DEEP Framework](https://github.com/MitocGroup/deep-framework).
 It could be used either as a standalone application or as a dependency in other deep-microservices.
 
@@ -72,7 +72,7 @@ command checks every 30 seconds if it's disabled and when successful, removes it
 Having questions related to deep-microservices-dynamic-image?
 
 - Ask questions: https://stackoverflow.com/questions/tagged/deep-framework
-- Chat with us: https://gitter.im/MitocGroup/deep-framework
+- Chat with us: https://mitocgroup.slack.com/messages/general
 - Send an email: feedback@deep.mg
 
 Interested in contributing to deep-microservices-dynamic-image?
@@ -85,7 +85,7 @@ Interested in contributing to deep-microservices-dynamic-image?
 Looking for web applications that use (or are similar to) deep-microservices-dynamic-image?
 
 - Hello World: https://hello.deep.mg | https://github.com/MitocGroup/deep-microservices-helloworld
-- Todo App: https://todo.deep.mg | https://github.com/MitocGroup/deep-microservices-todo-app
+- Todo App: https://todo.deep.mg | https://github.com/MitocGroup/deep-microservices-todomvc
 - Enterprise Software Marketplace: https://www.deep.mg
 
 

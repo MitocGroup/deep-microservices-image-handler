@@ -2,6 +2,10 @@
  * Created by Stefan Hariton on 09/18/15
  */
 
+/* eslint no-unused-vars: 0 */
+/* eslint no-use-before-define: 0 */
+/* eslint no-extra-bind: 0 */
+
 'use strict';
 
 var AWS = require('aws-sdk');
@@ -24,7 +28,7 @@ var exports = module.exports = function(callback) {
     s3.getBucketWebsite({Bucket: bucketName}, function(err, existingWebsiteConfiguration) {
       if (err) {
         cb(err);
-      };
+      }
 
       existingWebsiteConfiguration.RoutingRules = [
         {
@@ -67,7 +71,8 @@ var exports = module.exports = function(callback) {
   }
 
   function put1x1EmptyPixel(cb) {
-    var base64EmptyPixel = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiYAAAAAkAAxkR2eQAAAAASUVORK5CYII=';
+    var base64EmptyPixel =
+      'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiYAAAAAkAAxkR2eQAAAAASUVORK5CYII=';
     var parameters = {
       Bucket: bucketName,
       Key: 'transparent1x1.png',
