@@ -2,7 +2,7 @@ language: node_js
 sudo: required
 node_js:
   - '4.3'
-  - '7.0'
+  - '7.1'
 cache:
   edge: true
   directories:
@@ -23,9 +23,6 @@ after_success:
 after_script:
   - npm run remove-coverage
 env:
-  matrix:
-    - TEST_SUITE=backend
-    - TEST_SUITE=frontend
   global:
     - DEEP_NO_INTERACTION=1
     - E2E_TESTING=none
@@ -46,9 +43,12 @@ env:
         cYepJTAu1m1k8o5XxmBHlY8OHsdHoImsdJeJpcAVOOB7hdCjHnV4HRqoGWpWcKbSMWjZaUBxKRM2OChyQymoSeRvJqo65OfsYgwEOjiC3KdlqIhcVCArvl+HJvDEhDxp403swnQE95Uhsrgs4oeSNaRxXOlYA45r3K4kTgBIUh2mSaVLM2e4Fpupk1vKG6Nt+h1qrK86q6amPMHY2VF1IVnnwT3CCHw4dD4RY/aL/K4wv2BNmo3Hu+jj7jcQsap46PLavzmQlFIDOG3ehCwCfEuGBaCIN9OoFoDJ9uIIAQcF1YcTJabt7ZIxK/wlrv0AhX5lHDe7Zt2ej/HJ4dI8EPHbb0cL6wZOmC851M9mxcrS8FtsfNe4EcwyLCdj6Pqo0gD4RX5/fRNPGFJvW6zJCixn4NYBZyQSq/RJhMEp4Q0b1HzgVSUSv6oJ0e0phPUS4E0fp6yapV/cRqVj0iW3ou8pPS2Do7KSEBJtpfq6VewURD4YxT/y9N9vkR//kr2sCA7tZf6Se61qIbR/H5I3VST0b0HCyF6ruc83rPZETSE5wsAZ2L2Ccvu0G7Wqbn11DgkoO4azrUWlRsyF+w0muj6QLIeH6BqPpzKVUl1CxTsnTq7c9mwze5B98bb4FNF/OrfIAjgL/RbgMnH3iFfpspdjKPGg58ckvXNr+lktkfo=
     - secure: 
         hnqSLg0qGXRllSSxLz+AaDL87RvCH4pGkROX0RJjIluqpsvAbKoV/nbbVxQq2/mEqx6ybTtNvu2No0YRRtQWctmOkbKTDexqjgRQDuuzFmFeBcICeC733M+QgpqGhXHSObXsev1EJ67TcdvIjqdNnsePJuP7yR942n+m/YFFouV2o6ujr5CkxJoE7CtG36GxuzuJ6tcBa7zY7pxbtJYXuYF4f/Y9WOCNJrwHwhwfVTQYQo70Fs8YyNyhcDVHULLe0feRnBdFnyWsYVc471wgD+dNZflDc3VsBcB3EDXpoTZh5uo5L3Z+DPvj+PBzQLZ0rH+Ga03N3MSzHULOC+VDEvxanb20PBn8TgHks5hJHnU7C2ie9hQvDTrrB24yMBSm2UCJnDw3/JnyP/r3EZJOIaLD3Iue0HQZzOnbdvWNB9fz7ymFqi0DBatwjAYvgs3kmlGPb2FLpyeshWKgSmVCsS+KCfFRy6B2FXeGff7t5UuvTatnGqFHRx1SsjcvHMyrmuaMQ107FSrG74asC9Wiy4S3XYmOdm3aBOhQ4QnB40rXTMenAU/iqsY+uTu21HbpNZUA7ch3zRwtGHpnSj47jQDXFdDwOYL6DGe5ac/fs98vvvd62gCqGtRcu+UowWZH2LIZ2PkYgdrnxSYkeT62kdgg3EEezUnKMi1TuCUVr5o=
+  matrix:
+    - TEST_SUITE=backend
+    - TEST_SUITE=frontend
 notifications:
-  email:
-    - devs-deep@mitocgroup.com
   slack:
     secure: 
       N68DKTWA99zseRsJVB2aKNVxnXdQTD8sizWyKJqb1yFKXBRIqCz1zoOdPXLo/K2vanFc7DJ5LZqQjoEGf/vM/L7qV5Mws62jzFkTIMVnL7OyCt8yFlnKNf81zAD7cPowcLLZT/u6jpCXTODT2akHt0Q1YHIIdvTHQNAUMQ9JSpiLJQqt6kvfFsuq8W1fgOWuJQLRMw6PQMiCIby7FtuYNiXR3e4wmzrob4JJLZtBAd/EPlHGjPlpFBdiAfmVBR1tp6ibnUNgv0HMm7dxu9128spOLcgtBiqDRaUVFoF0InGoux1rRaIF/FuMtcupQjgHGQTz3FW6XbLygh6GH2Qc/+4tQS7ZTP42aeXGwt8UqQqIabMpaz1nAojxz4av8sw/CKZMwGwc9LbuDsBbnxLF6N2GtDHODy11rIuq5BxFYuaCncb+TCZaAUtsY94Ijp4zoRczpQbdLwJGbJm4v0G5qRXHDcvvTHufeQCdA69WZc156aOPY6J7Kliqxu6gXwtqZ/HHmRqxwJy7EtKNW5mImQP920ZfiFwWhuLbInWKzlo6TiuTlsWQJemvCfc+27ElOST98c9MnjRJ20v9fXn3kBit1bQxa/yPGe09S1bk8mhaJw3xwPP2vDx0zG+U9gGBAsi/tns3VxUqFEIUkWD6T9PVT6w6w7Zwh/+ZeeBI/5w=
+  email:
+    - devs-deep@mitocgroup.com
