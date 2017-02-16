@@ -179,6 +179,7 @@ export default {
   'forceUserIdentity': false,
   'microserviceIdentifier': 'deep-dynamic-image',
   'awsAccountId': 123456789012,
+  'apiVersion': 'v1',
   'appIdentifier': 'fsdgfdsghfdghgdf56765876876876ghjhg',
   'timestamp': 1469784760493,
   'buckets': {
