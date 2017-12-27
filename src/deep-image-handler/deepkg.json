@@ -1,6 +1,6 @@
 {
-  "identifier": "deep-dynamic-image",
-  "name": "deep-dynamic-image",
+  "identifier": "deep-image-handler",
+  "name": "deep-image-handler",
   "description": "DEEP Microservices Dynamic Image Service",
   "version": "0.0.1",
   "author": {
@@ -10,8 +10,8 @@
   },
   "contributors": [
     {
-      "name": "Stefan Hariton",
-      "email": "shariton@mitocgroup.com"
+      "name": "Grigore Caramn",
+      "email": "gcaraman@mitocgroup.com"
     }
   ],
   "dependencies": {

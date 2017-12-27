@@ -1,10 +1,10 @@
-deep-microservices-dynamic-image
+deep-microservices-image-handler
 ================================
 
-[![Build Status](https://travis-ci.com/MitocGroup/deep-microservices-dynamic-image.svg?token=K6deyi9kwkfxRyXwcv6c&branch=master)](https://travis-ci.com/MitocGroup/deep-microservices-dynamic-image)
+[![Build Status](https://travis-ci.com/MitocGroup/deep-microservices-image-handler.svg?token=K6deyi9kwkfxRyXwcv6c&branch=master)](https://travis-ci.com/MitocGroup/deep-microservices-image-handler)
 [![Test Coverage](https://codeclimate.com/repos/57985bde6b32cb4596005586/badges/481fff4d379f8b04e9c3/coverage.svg)](https://codeclimate.com/repos/57985bde6b32cb4596005586/coverage)
 
-deep-microservices-dynamic-image is a microservice designed to provide dynamic image management capabilities
+deep-microservices-image-handler is a microservice designed to provide image management capabilities
 in applications built on top of [DEEP Framework](https://github.com/MitocGroup/deep-framework).
 It could be used either as a standalone application or as a dependency in other deep-microservices.
 
@@ -32,26 +32,26 @@ inside Git Bash.
 ### Step 2. Install Microservice(s) Locally
 
 ```bash
-deepify install github://MitocGroup/deep-microservices-dynamic-image ~/deep-microservices-dynamic-image
+deepify install github://MitocGroup/deep-microservices-image-handler ~/deep-microservices-image-handler
 ```
 
 > Path parameter in all `deepify` commands is optional and if not specified, assumes current
-working directory. Therefore you can skip `~/deep-microservices-dynamic-image` by executing
-`mkdir ~/deep-microservices-dynamic-image && cd ~/deep-microservices-dynamic-image` before `deepify install`.
+working directory. Therefore you can skip `~/deep-microservices-image-handler` by executing
+`mkdir ~/deep-microservices-image-handler && cd ~/deep-microservices-image-handler` before `deepify install`.
 
 ### Step 3. Run Microservice(s) in Development
 
 ```bash
-deepify server ~/deep-microservices-dynamic-image -o
+deepify server ~/deep-microservices-image-handler -o
 ```
 
 > When this step is finished, you can open in your browser the link *http://localhost:8000*
-and enjoy the deep-microservices-dynamic-image running locally.
+and enjoy the deep-microservices-image-handler running locally.
 
 ### Step 4. Deploy Microservice(s) to Production
 
 ```bash
-deepify deploy ~/deep-microservices-dynamic-image
+deepify deploy ~/deep-microservices-image-handler
 ```
 
 > Amazon CloudFront distribution takes up to 20 minutes to provision, therefore don’t worry
@@ -60,7 +60,7 @@ if it returns an HTTP error in the first couple of minutes.
 ### Step 5. Remove Microservice(s) from Production
 
 ```bash
-deepify undeploy ~/deep-microservices-dynamic-image
+deepify undeploy ~/deep-microservices-image-handler
 ```
 
 > Amazon CloudFront distribution takes up to 20 minutes to unprovision. That's why `deepify`
@@ -69,20 +69,20 @@ command checks every 30 seconds if it's disabled and when successful, removes it
 
 ## Developer Resources
 
-Having questions related to deep-microservices-dynamic-image?
+Having questions related to deep-microservices-image-handler?
 
 - Ask questions: https://stackoverflow.com/questions/tagged/deep-framework
 - Chat with us: https://mitocgroup.slack.com/messages/general
 - Send an email: feedback@mitocgroup.com
 
-Interested in contributing to deep-microservices-dynamic-image?
+Interested in contributing to deep-microservices-image-handler?
 
-- Contributing: https://github.com/MitocGroup/deep-microservices-dynamic-image/blob/master/CONTRIBUTING.md
-- Issue tracker: https://github.com/MitocGroup/deep-microservices-dynamic-image/issues
-- Releases: https://github.com/MitocGroup/deep-microservices-dynamic-image/releases
-- Roadmap: https://github.com/MitocGroup/deep-microservices-dynamic-image/blob/master/ROADMAP.md
+- Contributing: https://github.com/MitocGroup/deep-microservices-image-handler/blob/master/CONTRIBUTING.md
+- Issue tracker: https://github.com/MitocGroup/deep-microservices-image-handler/issues
+- Releases: https://github.com/MitocGroup/deep-microservices-image-handler/releases
+- Roadmap: https://github.com/MitocGroup/deep-microservices-image-handler/blob/master/ROADMAP.md
 
-Looking for web applications that use (or are similar to) deep-microservices-dynamic-image?
+Looking for web applications that use (or are similar to) deep-microservices-image-handler?
 
 - Hello World: https://hello.deep.mg | https://github.com/MitocGroup/deep-microservices-helloworld
 - Todo App: https://todo.deep.mg | https://github.com/MitocGroup/deep-microservices-todomvc
@@ -96,4 +96,4 @@ This repository is being sponsored by:
 - [AdTechMedia](https://www.adtechmedia.io)
 
 This code can be used under MIT license:
-> See [LICENSE](https://github.com/MitocGroup/deep-microservices-dynamic-image/blob/master/LICENSE) for more details.
+> See [LICENSE](https://github.com/MitocGroup/deep-microservices-image-handler/blob/master/LICENSE) for more details.

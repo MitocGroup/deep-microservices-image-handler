@@ -1,7 +1,7 @@
 {
-  "name": "deep-dynamic-image-backend-test",
+  "name": "deep-image-handler-backend-test",
   "version": "0.0.1",
-  "description": "Description of deep-dynamic-image-backend-test",
+  "description": "Description of deep-image-handler-backend-test",
   "scripts": {
     "preinstall": "bash node-bin/preinstall.sh",
     "install": "bash node-bin/install.sh",
@@ -12,7 +12,7 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/MitocGroup/deep-microservices-skeleton.git"
+    "url": "https://github.com/MitocGroup/deep-microservices-image-handler.git"
   },
   "private": true,
   "license": "MIT"

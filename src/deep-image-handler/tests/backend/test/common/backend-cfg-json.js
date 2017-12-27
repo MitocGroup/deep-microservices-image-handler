@@ -12,7 +12,7 @@ export default {
   'identityPoolId': 'us-east-1:xxxxxxxx-xxxx-xxxx-xxxx-xx0123456789',
   'identityProviders': '',
   'microservices': {
-    'deep-dynamic-image': {
+    'deep-image-handler': {
       'isRoot': false,
       'parameters': {
         's3Bucket': 'deep.dev.public.dfsfsd454',
@@ -34,9 +34,9 @@ export default {
             'region': 'us-west-2',
             'scope': 'public',
             'source': {
-              'api': '/deep-dynamic-image/image/router',
-              'original': 'arn:aws:lambda:::function:deep-dynamic-image-image-router',
-              '_localPath': './src/deep-dynamic-image/backend/src/image/routing/bootstrap.js'
+              'api': '/deep-image-handler/image/router',
+              'original': 'arn:aws:lambda:::function:deep-image-handler-image-router',
+              '_localPath': './src/deep-image-handler/backend/src/image/routing/bootstrap.js'
             }
           },
           'transcoder': {
@@ -52,9 +52,9 @@ export default {
             'region': 'us-west-2',
             'scope': 'public',
             'source': {
-              'api': '/deep-dynamic-image/image/transcoder',
-              'original': 'arn:aws:lambda:::function:deep-dynamic-image-image-transcoder',
-              '_localPath': './src/deep-dynamic-image/backend/src/image/transcoding/bootstrap.js'
+              'api': '/deep-image-handler/image/transcoder',
+              'original': 'arn:aws:lambda:::function:deep-image-handler-image-transcoder',
+              '_localPath': './src/deep-image-handler/backend/src/image/transcoding/bootstrap.js'
             }
           }
         }
@@ -177,7 +177,7 @@ export default {
     }
   ],
   'forceUserIdentity': false,
-  'microserviceIdentifier': 'deep-dynamic-image',
+  'microserviceIdentifier': 'deep-image-handler',
   'awsAccountId': 123456789012,
   'apiVersion': 'v1',
   'appIdentifier': 'fsdgfdsghfdghgdf56765876876876ghjhg',
@@ -200,6 +200,6 @@ export default {
     'name': 'DeepDevName4a7dbaed'
   },
   'cacheDsn': '',
-  'name': 'deep-dynamic-image-image-router',
-  'path': './src/deep-dynamic-image/backend/src/image/routing/bootstrap.js'
+  'name': 'deep-image-handler-image-router',
+  'path': './src/deep-image-handler/backend/src/image/routing/bootstrap.js'
 };
