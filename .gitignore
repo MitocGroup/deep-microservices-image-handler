@@ -7,32 +7,10 @@
 
 ## Directory-based project format:
 .idea/
-# if you remove the above rule, at least ignore the following:
-
-# User-specific stuff:
-# .idea/workspace.xml
-# .idea/tasks.xml
-# .idea/dictionaries
-
-# Sensitive or high-churn files:
-# .idea/dataSources.ids
-# .idea/dataSources.xml
-# .idea/sqlDataSources.xml
-# .idea/dynamic.xml
-# .idea/uiDesigner.xml
-
-# Gradle:
-# .idea/gradle.xml
-# .idea/libraries
-
-# Mongo Explorer plugin:
-# .idea/mongoSettings.xml
 
 ## File-based project format:
 *.ipr
 *.iws
-*.zip
-*.sfv
 
 ## Plugin-specific files:
 
@@ -57,7 +35,6 @@ crashlytics-build.properties
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*
@@ -101,34 +78,25 @@ build/Release
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
-node_modules
+**/node_modules
 
 # Debug log from npm
 npm-debug.log
 
 
-#####=== Proprietary ===#####
-lib/*.pack/*
-src/*.pack/*
-lib/*/*.compiled
-src/*/*.compiled
-**/compile
-lib.compiled/*
-/tests/*
-coverage/*
-coverages/*
+#####=== DEEP ===#####
+**/src/deep-root-*
 
-#Transpiled Lambdas code
-**/backend/src/**/*.js
-
-# Root microservice
-**/src/deep-root-angular
+# Compiled libraries
+**/compile/
+**/lib.compiled/
 
 # App specific files
 .parameters.json
 deeploy.json*
 *_config.json*
 *.provisioning.json*
+*.metadata.json*
 
 # Backend files
 **/backend/src/**/*.js
@@ -140,6 +108,9 @@ deeploy.json*
 **/js/vendor/
 **/frontend/vendor/
 
+# Frontend build folder
+**/frontend/_build
+
 # Tests resources
 GitDiffWalker.js
 S3CoverageSynchronizer.js
@@ -149,16 +120,5 @@ GitHubMsgPublisher.js
 _vars.sh
 /package.json
 **/.sass-cache/
-
-shared-lib
-!backend/shared-lib
-.parameters.json
-
-# Configs
-.cfg.deeploy.json
-.cfg.deeploy.json.production
-.cfg.deeploy.json.local
-
-deeploy.json
-deeploy.json.production
-deeploy.json.local
+**/coverage/
+**/coverages/
