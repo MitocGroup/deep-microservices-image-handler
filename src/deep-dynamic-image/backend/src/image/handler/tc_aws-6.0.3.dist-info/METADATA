@@ -1,0 +1,24 @@
+Metadata-Version: 2.0
+Name: tc-aws
+Version: 6.0.3
+Summary: Thumbor AWS extensions
+Home-page: UNKNOWN
+Author: Thumbor-Community & William King
+Author-email: willtrking@gmail.com
+License: UNKNOWN
+Description-Content-Type: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: python-dateutil
+Requires-Dist: thumbor (<7,>=6.0.0)
+Requires-Dist: tornado-botocore
+Provides-Extra: tests
+Requires-Dist: pyvows; extra == 'tests'
+Requires-Dist: coverage; extra == 'tests'
+Requires-Dist: tornado-pyvows; extra == 'tests'
+Requires-Dist: boto; extra == 'tests'
+Requires-Dist: moto; extra == 'tests'
+Requires-Dist: mock; extra == 'tests'
+
+UNKNOWN
+
+

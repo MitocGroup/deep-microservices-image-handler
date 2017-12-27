@@ -1,20 +1,22 @@
 {
   "image": {
-    "router": {
-      "description": "Routes the request where needed",
+    "handler": {
+      "description": "Image handling lambda",
       "type": "lambda",
+      "skipCompile": true,
       "methods": [
-        "GET"
+        "ANY"
       ],
-      "source": "src/image/routing"
+      "engine": {
+        "memory": 128,
+        "runtime": "python2.7",
+        "uploadTimeout": 240000
     },
-    "transcoder": {
-      "description": "Transcodes the image",
-      "type": "lambda",
-      "methods": [
-        "GET"
-      ],
-      "source": "src/image/transcoding"
+      "api": {
+        "authorization": "NONE",
+        "keyRequired": false
+    },
+    "source": "src/image/handler"
     }
   }
 }
