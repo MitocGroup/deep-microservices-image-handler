@@ -1,0 +1,13 @@
+{
+  "name": "deep-microservices-image-handler",
+  "version": "0.0.1",
+  "description": "DEEP Microservices Dynamic Image Service",
+  "main": " ",
+  "scripts": {
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.4.2"
+  }
+}

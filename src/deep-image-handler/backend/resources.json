@@ -1,0 +1,22 @@
+{
+  "image": {
+    "handler": {
+      "description": "Image handling lambda",
+      "type": "lambda",
+      "skipCompile": true,
+      "methods": [
+        "ANY"
+      ],
+      "engine": {
+        "memory": 128,
+        "runtime": "python2.7",
+        "uploadTimeout": 240000
+      },
+      "api": {
+        "authorization": "NONE",
+        "keyRequired": false
+      },
+      "source": "src/image/handler"
+    }
+  }
+}
